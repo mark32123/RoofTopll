@@ -1,4 +1,4 @@
-package com.ll.rooftopll.dto;
+package com.ll.rooftopll.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
