@@ -1,10 +1,11 @@
 package com.ll.rooftopll.commn.api;
 
+import com.ll.rooftopll.entity.User;
 import lombok.Data;
 
 @Data
 public class Result<T> {
-    private Integer code; // 200 成功, 500 失败
+    private int code;
     private String msg;
     private T data;
 

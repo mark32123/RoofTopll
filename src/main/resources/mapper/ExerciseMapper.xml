@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ll.rooftopll.mapper.ExerciseMapper">
+    <select id="selectAllAvailable" resultType="com.ll.rooftopll.entity.Exercise">
+        SELECT * FROM exercise
+        WHERE user_id = 0 OR user_id = #{userId}
+        ORDER BY category, name
+    </select>
+
+    <insert id="insertExercise" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO exercise (name, category, is_big_three, user_id)
+        VALUES (#{name}, #{category}, #{isBigThree}, #{userId})
+    </insert>
+</mapper>

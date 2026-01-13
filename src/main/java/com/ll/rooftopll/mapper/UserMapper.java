@@ -1,10 +1,13 @@
 package com.ll.rooftopll.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.ll.rooftopll.entity.User;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import java.util.List;
 
 @Mapper
-public interface UserMapper extends BaseMapper<User> {
-
+public interface UserMapper {
+    User findByUsername(String username);
+    int insertUser(User user);
+    int updateAvatar(@Param("id") Long id, @Param("avatar") String avatar);
 }

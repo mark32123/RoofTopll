@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ll.rooftopll.mapper.UserMapper">
+    <resultMap id="UserMap" type="com.ll.rooftopll.entity.User">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="avatar" column="avatar"/>
+        <result property="gender" column="gender"/>
+        <result property="createTime" column="create_time"/>
+    </resultMap>
+    <update id="updateAvatar">
+        UPDATE user SET avatar = #{avatar} WHERE id = #{id}
+    </update>
+
+    <select id="findByUsername" resultMap="UserMap">
+        SELECT * FROM user WHERE username = #{username}
+    </select>
+
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO user (username, password, avatar, gender)
+        VALUES (#{username}, #{password}, #{avatar}, #{gender})
+    </insert>
+</mapper>

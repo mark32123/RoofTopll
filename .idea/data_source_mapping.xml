@@ -3,6 +3,14 @@
   <component name="DataSourcePerFileMappings">
     <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/4e982087-4c01-4405-aac4-2905477bd88f/console.sql" value="4e982087-4c01-4405-aac4-2905477bd88f" />
     <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/4e982087-4c01-4405-aac4-2905477bd88f/console_1.sql" value="4e982087-4c01-4405-aac4-2905477bd88f" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/ll/rooftopll/mapper/WorkoutSetMapper.java" value="4e982087-4c01-4405-aac4-2905477bd88f" />
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/4e982087-4c01-4405-aac4-2905477bd88f/console_2.sql" value="4e982087-4c01-4405-aac4-2905477bd88f" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/ll/rooftopll/mapper/UserMapper.java" value="4e982087-4c01-4405-aac4-2905477bd88f" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/mapper/ExerciseMapper.xml" value="4e982087-4c01-4405-aac4-2905477bd88f" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/mapper/SupplementMapper.xml" value="4e982087-4c01-4405-aac4-2905477bd88f" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" value="4e982087-4c01-4405-aac4-2905477bd88f" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/mapper/WeightLogMapper.xml" value="4e982087-4c01-4405-aac4-2905477bd88f" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/mapper/WorkoutActivityMapper.xml" value="4e982087-4c01-4405-aac4-2905477bd88f" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/mapper/WorkoutSessionMapper.xml" value="4e982087-4c01-4405-aac4-2905477bd88f" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/mapper/WorkoutSetMapper.xml" value="4e982087-4c01-4405-aac4-2905477bd88f" />
   </component>
 </project>
