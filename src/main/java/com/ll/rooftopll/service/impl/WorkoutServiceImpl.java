@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Service
@@ -30,11 +32,12 @@ public class WorkoutServiceImpl implements WorkoutService {
         // 1. 获取或创建 Session
         WorkoutSession currentSession = sessionMapper.findActiveSession(userId);
 
+        //若没有选择已有计划，则创建一个新计划
         if (currentSession == null) {
             currentSession = new WorkoutSession();
             currentSession.setUserId(userId);
             currentSession.setStartTime(LocalDateTime.now());
-            currentSession.setTitle("新训练");
+            currentSession.setTitle("新训练计划");
             sessionMapper.insert(currentSession); // 插入后，id 会自动回填
         }
 
@@ -58,5 +61,56 @@ public class WorkoutServiceImpl implements WorkoutService {
 
         setMapper.insert(workoutSet);
 
+    }
+    // 开始训练开关
+    @Transactional
+    public WorkoutSession startNewSession(Long userId, String title) {
+        // 1. 检查是否有正在进行的训练
+        WorkoutSession activeSession = sessionMapper.findActiveSession(userId);
+        if (activeSession != null) {
+            // 如果有，可以直接返回，或者抛异常，这里我们选择直接返回当前的
+            return activeSession;
+        }
+
+        // 2. 如果没有，创建新的
+        WorkoutSession newSession = new WorkoutSession();
+        newSession.setUserId(userId);
+        newSession.setStartTime(LocalDateTime.now());
+
+        // 如果没传标题，给个默认名
+        if (title == null || title.isEmpty()) {
+            title = LocalDate.now() + " 的力量训练";
+        }
+        newSession.setTitle(title);
+        newSession.setTotalVolume(BigDecimal.ZERO);
+
+        sessionMapper.insert(newSession);
+        return newSession;
+    }
+
+    /*
+    3. 结束训练
+     */
+    @Override
+    @Transactional
+    public WorkoutSession endCurrentSession(Long userId) {
+        // 1. 找到当前活跃的 Session
+        WorkoutSession activeSession = sessionMapper.findActiveSession(userId);
+        if (activeSession == null) {
+            throw new RuntimeException("没有正在进行的训练");
+        }
+
+        // 2. 计算本次训练的总容量 (Total Volume)
+        // SQL: SELECT SUM(weight * reps) FROM workout_set WHERE activity_id IN (SELECT id FROM workout_activity WHERE session_id = ?)
+        BigDecimal totalVolume = sessionMapper.calculateTotalVolume(activeSession.getId());
+
+        // 3. 设置结束数据
+        activeSession.setEndTime(LocalDateTime.now());
+        activeSession.setTotalVolume(totalVolume != null ? totalVolume : BigDecimal.ZERO);
+
+        // 4. 更新数据库
+        sessionMapper.updateSessionEnd(activeSession);
+
+        return activeSession;
     }
 }

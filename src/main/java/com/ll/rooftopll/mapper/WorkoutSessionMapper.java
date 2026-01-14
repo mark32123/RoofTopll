@@ -16,4 +16,9 @@ public interface WorkoutSessionMapper {
 
     // 插入并返回 ID
     int insert(WorkoutSession session);
+
+
+    BigDecimal calculateTotalVolume(Long id);
+
+    void updateSessionEnd(WorkoutSession activeSession);
 }
