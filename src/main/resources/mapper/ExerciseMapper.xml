@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ll.rooftopll.mapper.ExerciseMapper">
-    <select id="selectAllAvailable" resultType="com.ll.rooftopll.entity.Exercise">
-        SELECT * FROM exercise
+    <select id="selectAvailableExercises" resultType="com.ll.rooftopll.entity.Exercise">
+        SELECT id, name, category, is_big_three as isBigThree, user_id as userId
+        FROM exercise
         WHERE user_id = 0 OR user_id = #{userId}
-        ORDER BY category, name
+        ORDER BY is_big_three DESC, category ASC
     </select>
 
     <insert id="insertExercise" useGeneratedKeys="true" keyProperty="id">

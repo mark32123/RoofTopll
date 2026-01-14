@@ -7,8 +7,8 @@ import java.util.List;
 
 @Mapper
 public interface ExerciseMapper {
-    // 获取系统预设动作(user_id=0)和该用户的自定义动作
-    List<Exercise> selectAllAvailable(@Param("userId") Long userId);
+    // 根据用户ID获取所有可用动作（系统预设 + 该用户自建）
+    List<Exercise> selectAvailableExercises(Long userId);
 
     // 用户自定义动作添加
     int insertExercise(Exercise exercise);
