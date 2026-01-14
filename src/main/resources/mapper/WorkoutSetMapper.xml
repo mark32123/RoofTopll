@@ -1,29 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    <mapper namespace="com.ll.rooftopll.mapper.WorkoutSetMapper">
-        <insert id="insertSet">
-            INSERT INTO workout_set (activity_id, set_index, weight, reps, rpe)
-            VALUES (#{activityId}, #{setIndex}, #{weight}, #{reps}, #{rpe})
-        </insert>
+<mapper namespace="com.ll.rooftopll.mapper.WorkoutSetMapper">
+    <insert id="insert">
+        INSERT INTO workout_set (activity_id, set_index, weight, reps, rpe)
+        VALUES (#{activityId}, #{setIndex}, #{weight}, #{reps}, #{rpe})
+    </insert>
 
-        <select id="getBigThreeTrend" resultType="map">
-            SELECT MAX(ws.weight) as maxWeight, DATE(sess.start_time) as logDate
-            FROM workout_set ws
-            JOIN workout_activity wa ON ws.activity_id = wa.id
-            JOIN workout_session sess ON wa.session_id = sess.id
-            WHERE sess.user_id = #{userId} AND wa.exercise_id = #{exerciseId}
-            GROUP BY sess.id ORDER BY logDate ASC
-        </select>
-
-        <select id="getTotalScoreTrend" resultType="map">
-            SELECT logDate, SUM(dailyMax) as totalScore FROM (
-                SELECT sess.id as sessId, DATE(sess.start_time) as logDate, MAX(ws.weight) as dailyMax
-                FROM workout_set ws
-                JOIN workout_activity wa ON ws.activity_id = wa.id
-                JOIN workout_session sess ON wa.session_id = sess.id
-                JOIN exercise e ON wa.exercise_id = e.id
-                WHERE sess.user_id = #{userId} AND e.is_big_three = 1
-                GROUP BY sess.id, e.id
-            ) t GROUP BY sessId ORDER BY logDate ASC
-        </select>
-    </mapper>
+    <select id="countByActivityId" resultType="int">
+        SELECT COUNT(*) FROM workout_set WHERE activity_id = #{activityId}
+    </select>
+</mapper>

@@ -1,26 +1,32 @@
 package com.ll.rooftopll.commn.api;
 
-import com.ll.rooftopll.entity.User;
 import lombok.Data;
 
 @Data
 public class Result<T> {
-    private int code;
+    private Integer code;
     private String msg;
     private T data;
 
-    public static <T> Result<T> success(T data) {
-        Result<T> result = new Result<>();
-        result.setCode(200);
-        result.setMsg("操作成功");
-        result.setData(data);
-        return result;
+    // 全参构造函数
+    public Result(Integer code, String msg, T data) {
+        this.code = code;
+        this.msg = msg;
+        this.data = data;
     }
 
+    // 1. 成功：不带数据 (用于增删改)
+    public static <T> Result<T> success() {
+        return new Result<>(200, "操作成功", null);
+    }
+
+    // 2. 成功：带数据 (用于查询)
+    public static <T> Result<T> success(T data) {
+        return new Result<>(200, "操作成功", data);
+    }
+
+    // 3. 失败：自定义错误
     public static <T> Result<T> error(String msg) {
-        Result<T> result = new Result<>();
-        result.setCode(500);
-        result.setMsg(msg);
-        return result;
+        return new Result<>(500, msg, null);
     }
 }

@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ll.rooftopll.mapper.WorkoutSessionMapper">
-    <insert id="insertSession" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO workout_session (user_id, title, start_time)
-        VALUES (#{userId}, #{title}, NOW())
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO workout_session (user_id, title, start_time, total_volume)
+        VALUES (#{userId}, #{title}, #{startTime}, #{totalVolume})
     </insert>
 
-    <update id="finishSession">
-        UPDATE workout_session
-        SET end_time = #{endTime}, total_volume = #{totalVolume}
-        WHERE id = #{id}
-    </update>
-
-    <select id="selectRecentSessions" resultType="com.ll.rooftopll.entity.WorkoutSession">
+    <select id="findActiveSession" resultType="com.ll.rooftopll.entity.WorkoutSession">
         SELECT * FROM workout_session
-        WHERE user_id = #{userId}
-        ORDER BY start_time DESC
-        LIMIT 10
+        WHERE user_id = #{userId} AND end_time IS NULL
+        ORDER BY start_time DESC LIMIT 1
     </select>
 </mapper>

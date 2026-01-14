@@ -9,13 +9,7 @@ import java.util.Map;
 
 @Mapper
 public interface WorkoutSetMapper {
-    // 添加组数记录
-    int insertSet(WorkoutSet set);
+    int insert(WorkoutSet workoutSet);
 
-    /**
-     * 获取三大项单项的最大重量变化 (核心功能)
-     * @param exerciseId 对应深蹲、卧推或硬拉的ID
-     */
-    List<Map<String, Object>> getBigThreeTrend(@Param("userId") Long userId,
-                                               @Param("exerciseId") Long exerciseId);
+    int countByActivityId(@Param("activityId") Long activityId);
 }

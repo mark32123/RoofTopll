@@ -11,5 +11,12 @@ public interface ExerciseMapper {
     List<Exercise> selectAvailableExercises(Long userId);
 
     // 用户自定义动作添加
-    int insertExercise(Exercise exercise);
+    int insert(Exercise exercise);
+
+    // 动作搜索
+    List<Exercise> searchExercises(@Param("name") String name, @Param("userId") Long userId);
+
+    // 获取常用动作
+    List<Exercise> selectCommon();
+
 }

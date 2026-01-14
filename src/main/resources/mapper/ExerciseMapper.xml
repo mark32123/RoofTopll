@@ -8,8 +8,19 @@
         ORDER BY is_big_three DESC, category ASC
     </select>
 
-    <insert id="insertExercise" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO exercise (name, category, is_big_three, user_id)
-        VALUES (#{name}, #{category}, #{isBigThree}, #{userId})
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO exercise (name, category, user_id,is_big_three)
+        VALUES (#{name}, #{category},#{userId},#{isBigThree})
     </insert>
+
+    <select id="searchExercises" resultType="com.ll.rooftopll.entity.Exercise">
+        SELECT id, name, category, is_big_three as isBigThree, user_id as userId
+        FROM exercise
+        WHERE (user_id = 0 OR user_id = #{userId})
+          AND name LIKE CONCAT('%', #{name}, '%')
+    </select>
+
+    <select id="selectCommon" resultType="com.ll.rooftopll.entity.Exercise">
+        SELECT * FROM exercise WHERE is_big_three = 1
+    </select>
 </mapper>
