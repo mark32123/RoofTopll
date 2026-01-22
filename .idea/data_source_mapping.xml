@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourcePerFileMappings">
+    <file url="file://$PROJECT_DIR$/src/main/resources/mapper/WorkoutSessionMapper.xml" value="8ab8804c-a8b5-48ef-a108-43721d2a3214" />
+  </component>
+</project>

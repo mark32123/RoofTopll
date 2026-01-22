@@ -24,4 +24,30 @@
         SET end_time = #{endTime}, total_volume = #{totalVolume}
         WHERE id = #{id}
     </update>
+
+<select id="getBigThreeProgress" resultType="com.ll.rooftopll.dto.BigThreeDTO">
+    SELECT
+        recordDate,
+        squat,
+        bench,
+        deadlift,
+        (squat + bench + deadlift) as total
+    FROM (
+         SELECT
+             DATE(s.start_time) as recordDate,
+             MAX(CASE WHEN e.name = 'Squat' OR e.id = 1 THEN ws.weight ELSE 0 END) as squat,
+             MAX(CASE WHEN e.name = 'Bench Press' OR e.id = 3 THEN ws.weight ELSE 0 END) as bench,
+             MAX(CASE WHEN e.name = 'Deadlift' OR e.id = 5 THEN ws.weight ELSE 0 END) as deadlift
+         FROM workout_session s
+                  JOIN workout_activity wa ON s.id = wa.session_id
+                  JOIN exercise e ON wa.exercise_id = e.id
+                  JOIN workout_set ws ON wa.id = ws.activity_id
+         WHERE s.user_id = #{userId}
+           AND s.end_time IS NOT NULL
+         GROUP BY DATE(s.start_time)
+     ) t
+    WHERE squat > 0 OR bench > 0 OR deadlift > 0
+    ORDER BY recordDate ASC
+</select>
+
 </mapper>

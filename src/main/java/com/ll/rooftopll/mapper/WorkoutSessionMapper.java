@@ -1,5 +1,6 @@
 package com.ll.rooftopll.mapper;
 
+import com.ll.rooftopll.dto.BigThreeDTO;
 import com.ll.rooftopll.entity.WorkoutSession;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -21,4 +22,6 @@ public interface WorkoutSessionMapper {
     BigDecimal calculateTotalVolume(Long id);
 
     void updateSessionEnd(WorkoutSession activeSession);
+
+    List<BigThreeDTO> getBigThreeProgress(@Param("userId") Long userId);
 }

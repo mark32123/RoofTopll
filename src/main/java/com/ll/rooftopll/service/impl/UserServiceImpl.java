@@ -15,18 +15,25 @@ public class UserServiceImpl implements UserService {
     @Resource
     private WeightLogMapper weightLogMapper;
 
-    @Override
+    /**
+     * 记录或更新当日体重
+     * @param userId
+     * @param weight
+     */
     public void logWeight(Long userId, BigDecimal weight) {
         WeightLog log = new WeightLog();
         log.setUserId(userId);
         log.setWeight(weight);
         log.setLogDate(LocalDate.now()); // 设置为当前日期
 
-        // 调用我们 XML 中写的 upsert 逻辑
         weightLogMapper.upsertWeight(log);
     }
 
-    @Override
+    /**
+     * 获取体重历史数据
+     * @param userId
+     * @return
+     */
     public List<WeightLog> getWeightHistory(Long userId) {
         return weightLogMapper.selectWeightHistory(userId);
     }

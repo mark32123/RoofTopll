@@ -1,8 +1,11 @@
 package com.ll.rooftopll.service;
 
 
+import com.ll.rooftopll.dto.BigThreeDTO;
 import com.ll.rooftopll.entity.WorkoutSession;
 import com.ll.rooftopll.entity.WorkoutSet;
+
+import java.util.List;
 
 public interface WorkoutService {
     /**
@@ -22,4 +25,11 @@ public interface WorkoutService {
      * 逻辑：自动关联或创建 Session 和 Activity
      */
     WorkoutSession endCurrentSession(Long userId);
+
+    /**
+     * 获取三大项成绩
+     * @param userId
+     * @return
+     */
+    List<BigThreeDTO> getBigThreeProgress(Long userId);
 }

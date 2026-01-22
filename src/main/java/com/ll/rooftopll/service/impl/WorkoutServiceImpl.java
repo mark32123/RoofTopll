@@ -1,5 +1,6 @@
 package com.ll.rooftopll.service.impl;
 
+import com.ll.rooftopll.dto.BigThreeDTO;
 import com.ll.rooftopll.entity.WorkoutActivity;
 import com.ll.rooftopll.entity.WorkoutSession;
 import com.ll.rooftopll.entity.WorkoutSet;
@@ -14,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class WorkoutServiceImpl implements WorkoutService {
@@ -112,5 +114,11 @@ public class WorkoutServiceImpl implements WorkoutService {
         sessionMapper.updateSessionEnd(activeSession);
 
         return activeSession;
+    }
+
+    @Override
+    public List<BigThreeDTO> getBigThreeProgress(Long userId) {
+        // 这一行搞定所有逻辑：直接把数据库查出来的列表扔给前端
+        return sessionMapper.getBigThreeProgress(userId);
     }
 }
