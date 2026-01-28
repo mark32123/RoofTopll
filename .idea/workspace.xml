@@ -4,29 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae39027a-2cc4-4fdd-b879-2af51988778e" name="更改" comment="1142026添加session开始和结束开关，训练功能完毕">
-      <change afterPath="$PROJECT_DIR$/.idea/data_source_mapping.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/dto/BigThreeDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8ab8804c-a8b5-48ef-a108-43721d2a3214.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8ab8804c-a8b5-48ef-a108-43721d2a3214.xml" afterDir="false" />
+    <list default="true" id="ae39027a-2cc4-4fdd-b879-2af51988778e" name="更改" comment="1222026三大项成绩变化曲线记录功能">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/controller/WorkoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/controller/WorkoutController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/dto/ProgressChartDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/mapper/WorkoutSessionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/mapper/WorkoutSessionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/service/WorkoutService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/service/WorkoutService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/service/impl/WorkoutServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/service/impl/WorkoutServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/WorkoutSessionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/WorkoutSessionMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/controller/WorkoutController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/controller/WorkoutController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/dto/ProgressChartDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/mapper/WorkoutSessionMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/mapper/WorkoutSessionMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/service/WorkoutService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/service/WorkoutService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/service/impl/WorkoutServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/service/impl/WorkoutServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/WorkoutSessionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/WorkoutSessionMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +66,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.RoofTopllApplication.executor": "Debug",
+    "Spring Boot.RoofTopllApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "nodejs_package_manager_path": "npm",
@@ -126,7 +107,10 @@
       <workItem from="1768829977479" duration="202000" />
       <workItem from="1768832626175" duration="627000" />
       <workItem from="1768876315812" duration="616000" />
-      <workItem from="1769083732980" duration="1846000" />
+      <workItem from="1769083732980" duration="2616000" />
+      <workItem from="1769401174761" duration="1367000" />
+      <workItem from="1769594003011" duration="405000" />
+      <workItem from="1769607225090" duration="1698000" />
     </task>
     <task id="LOCAL-00001" summary="1142026添加计划，添加动作，核心的“增、删、查”">
       <option name="closed" value="true" />
@@ -144,7 +128,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768372034152</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="1222026三大项成绩变化曲线记录功能">
+      <option name="closed" value="true" />
+      <created>1769086031620</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1769086031620</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,7 +145,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1142026添加计划，添加动作，核心的“增、删、查”" />
     <MESSAGE value="1142026添加session开始和结束开关，训练功能完毕" />
-    <option name="LAST_COMMIT_MESSAGE" value="1142026添加session开始和结束开关，训练功能完毕" />
+    <MESSAGE value="1222026三大项成绩变化曲线记录功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="1222026三大项成绩变化曲线记录功能" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

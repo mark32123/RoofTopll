@@ -18,14 +18,14 @@ public class UserController {
     @Resource
     private UserService userService;
 
-    // 称完体重点击提交
+    // 记录体重
     @PostMapping("/weight")
     public Result<String> logWeight(@RequestParam Long userId, @RequestParam BigDecimal weight) {
         userService.logWeight(userId, weight);
         return Result.success("体重记录成功");
     }
 
-    // 获取曲线图数据
+    // 获取体重变化数据
     @GetMapping("/weight/history")
     public Result<List<WeightLog>> getWeightHistory(@RequestParam Long userId) {
         List<WeightLog> history = userService.getWeightHistory(userId);

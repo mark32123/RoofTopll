@@ -13,7 +13,7 @@
     </select>
 
     <select id="calculateTotalVolume" resultType="java.math.BigDecimal">
-        SELECT SUM(s.weight * s.reps)
+        SELECT SUM(s.weight * s.reps * s.rpe)
         FROM workout_set s
                  JOIN workout_activity a ON s.activity_id = a.id
         WHERE a.session_id = #{sessionId}
