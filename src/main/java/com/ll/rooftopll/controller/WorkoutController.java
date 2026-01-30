@@ -2,6 +2,7 @@ package com.ll.rooftopll.controller;
 
 import com.ll.rooftopll.commn.api.Result;
 import com.ll.rooftopll.dto.BigThreeDTO;
+import com.ll.rooftopll.dto.SessionSummaryDTO;
 import com.ll.rooftopll.dto.WorkoutActivityDTO;
 import com.ll.rooftopll.entity.WorkoutSession;
 import com.ll.rooftopll.entity.WorkoutSet;
@@ -52,8 +53,8 @@ public class WorkoutController {
      * @return
      */
     @PostMapping("/end")
-    public Result<WorkoutSession> endSession(@RequestParam Long userId) {
-        WorkoutSession summary = workoutService.endCurrentSession(userId);
+    public Result<SessionSummaryDTO> endSession(@RequestParam Long userId) {
+        SessionSummaryDTO summary = workoutService.endCurrentSession(userId);
         return Result.success(summary);
     }
 

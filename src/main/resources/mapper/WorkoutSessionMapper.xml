@@ -50,4 +50,25 @@
     ORDER BY recordDate ASC
 </select>
 
+    <resultMap id="SessionDetailMap" type="com.ll.rooftopll.dto.ActivityDetailDTO">
+        <result property="exerciseName" column="name"/>
+        <collection property="sets" ofType="com.ll.rooftopll.dto.SetDetailDTO">
+            <result property="setIndex" column="set_index"/>
+            <result property="weight" column="weight"/>
+            <result property="reps" column="reps"/>
+        </collection>
+    </resultMap>
+
+    <select id="getSessionDetails" resultMap="SessionDetailMap">
+        SELECT
+            e.name,
+            s.set_index,
+            s.weight,
+            s.reps
+        FROM workout_activity a
+                 JOIN exercise e ON a.exercise_id = e.id
+                 JOIN workout_set s ON a.id = s.activity_id
+        WHERE a.session_id = #{sessionId}
+        ORDER BY a.id ASC, s.set_index ASC
+    </select>
 </mapper>

@@ -1,6 +1,9 @@
 package com.ll.rooftopll.service.impl;
 
+import com.ll.rooftopll.commn.fight.InspirationConsts;
+import com.ll.rooftopll.dto.ActivityDetailDTO;
 import com.ll.rooftopll.dto.BigThreeDTO;
+import com.ll.rooftopll.dto.SessionSummaryDTO;
 import com.ll.rooftopll.entity.WorkoutActivity;
 import com.ll.rooftopll.entity.WorkoutSession;
 import com.ll.rooftopll.entity.WorkoutSet;
@@ -95,25 +98,40 @@ public class WorkoutServiceImpl implements WorkoutService {
      */
     @Override
     @Transactional
-    public WorkoutSession endCurrentSession(Long userId) {
-        // 1. 找到当前活跃的 Session
-        WorkoutSession activeSession = sessionMapper.findActiveSession(userId);
-        if (activeSession == null) {
-            throw new RuntimeException("没有正在进行的训练");
+    public SessionSummaryDTO endCurrentSession(Long userId) {
+        // 1. 定位活跃会话
+        WorkoutSession session = sessionMapper.findActiveSession(userId);
+        if (session == null) throw new RuntimeException("Mark，当前没有正在进行的训练哦");
+
+        // 2. 结束会话并计算各项指标
+        LocalDateTime now = LocalDateTime.now();
+        session.setEndTime(now);
+
+        long mins = java.time.Duration.between(session.getStartTime(), now).toMinutes();
+        BigDecimal totalVol = sessionMapper.calculateTotalVolume(session.getId());
+        session.setTotalVolume(totalVol != null ? totalVol : BigDecimal.ZERO);
+
+        sessionMapper.updateSessionEnd(session);
+
+        // 3. 聚合动作详情
+        List<ActivityDetailDTO> details = sessionMapper.getSessionDetails(session.getId());
+
+        // 4. 赋予进步标签
+        for (ActivityDetailDTO activity : details) {
+            activity.setAchievementTag(InspirationConsts.TAG_NORMAL);
         }
 
-        // 2. 计算本次训练的总容量 (Total Volume)
-        // SQL: SELECT SUM(weight * reps) FROM workout_set WHERE activity_id IN (SELECT id FROM workout_activity WHERE session_id = ?)
-        BigDecimal totalVolume = sessionMapper.calculateTotalVolume(activeSession.getId());
+        // 5. 装配 DTO
+        SessionSummaryDTO summary = new SessionSummaryDTO();
+        summary.setSessionId(session.getId());
+        summary.setStartTime(session.getStartTime());
+        summary.setEndTime(now);
+        summary.setDurationMinutes(mins);
+        summary.setTotalVolume(session.getTotalVolume());
+        summary.setActivities(details);
+        summary.setSessionInspiration(InspirationConsts.getSessionInspiration(mins, session.getTotalVolume()));
 
-        // 3. 设置结束数据
-        activeSession.setEndTime(LocalDateTime.now());
-        activeSession.setTotalVolume(totalVolume != null ? totalVolume : BigDecimal.ZERO);
-
-        // 4. 更新数据库
-        sessionMapper.updateSessionEnd(activeSession);
-
-        return activeSession;
+        return summary;
     }
 
     @Override
@@ -148,5 +166,24 @@ public class WorkoutServiceImpl implements WorkoutService {
         }
 
         return rawData;
+    }
+
+    @Override
+    public SessionSummaryDTO getSessionSummary(Long sessionId) {
+        // 1. 获取 Session 基础信息（时间、总容量等）
+        WorkoutSession session = sessionMapper.selectById(sessionId);
+
+        // 2. 获取该 Session 下所有的动作及其对应的组数
+        // 建议在 Mapper 层面通过 JOIN 一次性查出，或者分步查询
+        List<ActivityDetailDTO> activities = sessionMapper.getSessionDetails(sessionId);
+
+        SessionSummaryDTO summary = new SessionSummaryDTO();
+        summary.setSessionId(session.getId());
+        summary.setStartTime(session.getStartTime());
+        summary.setEndTime(session.getEndTime());
+        summary.setTotalVolume(session.getTotalVolume());
+        summary.setActivities(activities);
+
+        return summary;
     }
 }

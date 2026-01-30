@@ -2,6 +2,7 @@ package com.ll.rooftopll.service;
 
 
 import com.ll.rooftopll.dto.BigThreeDTO;
+import com.ll.rooftopll.dto.SessionSummaryDTO;
 import com.ll.rooftopll.entity.WorkoutSession;
 import com.ll.rooftopll.entity.WorkoutSet;
 
@@ -24,7 +25,7 @@ public interface WorkoutService {
      * 结束当前训练计划
      * 逻辑：自动关联或创建 Session 和 Activity
      */
-    WorkoutSession endCurrentSession(Long userId);
+    SessionSummaryDTO endCurrentSession(Long userId);
 
     /**
      * 获取三大项成绩
@@ -32,4 +33,11 @@ public interface WorkoutService {
      * @return
      */
     List<BigThreeDTO> getBigThreeProgress(Long userId);
+
+    /**
+     * 获取训练报告
+     * @param sessionId
+     * @return
+     */
+    SessionSummaryDTO getSessionSummary(Long sessionId);
 }
