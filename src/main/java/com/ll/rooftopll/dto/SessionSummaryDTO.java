@@ -1,5 +1,6 @@
 package com.ll.rooftopll.dto;
 
+import com.ll.rooftopll.entity.SupplementLog;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -15,4 +16,5 @@ public class SessionSummaryDTO {
     private Long durationMinutes;  // 训练时长（分钟）
     private String sessionInspiration; // 总结性激励语
     private List<ActivityDetailDTO> activities; // 包含的具体动作列表
+    private List<SupplementLog> supplements; // 该训练服用的补剂
 }

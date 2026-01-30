@@ -3,6 +3,7 @@ package com.ll.rooftopll.service;
 
 import com.ll.rooftopll.dto.BigThreeDTO;
 import com.ll.rooftopll.dto.SessionSummaryDTO;
+import com.ll.rooftopll.entity.SupplementLog;
 import com.ll.rooftopll.entity.WorkoutSession;
 import com.ll.rooftopll.entity.WorkoutSet;
 
@@ -40,4 +41,10 @@ public interface WorkoutService {
      * @return
      */
     SessionSummaryDTO getSessionSummary(Long sessionId);
+
+    /**
+     * 添加补充剂
+     * @param log
+     */
+    void logSupplement(SupplementLog log);
 }

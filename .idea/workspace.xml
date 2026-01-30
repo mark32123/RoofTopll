@@ -4,22 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae39027a-2cc4-4fdd-b879-2af51988778e" name="更改" comment="BigTreeProgress曲线平滑过渡">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/commn/fight/InspirationConsts.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/dto/ActivityDetailDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/dto/SessionSummaryDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/dto/SetDetailDTO.java" afterDir="false" />
+    <list default="true" id="ae39027a-2cc4-4fdd-b879-2af51988778e" name="更改" comment="训练报告 创建激励语句">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/dto/SupplementTemplateDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/controller/WorkoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/controller/WorkoutController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/mapper/WorkoutSessionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/mapper/WorkoutSessionMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/controller/SupplementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/controller/SupplementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/dto/SessionSummaryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/dto/SessionSummaryDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/mapper/SupplementLogMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/mapper/SupplementLogMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/service/WorkoutService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/service/WorkoutService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/service/impl/WorkoutServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/service/impl/WorkoutServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/WorkoutSessionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/WorkoutSessionMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/controller/WorkoutController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/controller/WorkoutController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/mapper/WorkoutSessionMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/mapper/WorkoutSessionMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/service/WorkoutService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/service/WorkoutService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/service/impl/WorkoutServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/service/impl/WorkoutServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/WorkoutSessionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/WorkoutSessionMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +120,7 @@
       <workItem from="1769743965188" duration="241000" />
       <workItem from="1769748850260" duration="2303000" />
       <workItem from="1769752004015" duration="473000" />
-      <workItem from="1769756607773" duration="2091000" />
+      <workItem from="1769756607773" duration="3338000" />
     </task>
     <task id="LOCAL-00001" summary="1142026添加计划，添加动作，核心的“增、删、查”">
       <option name="closed" value="true" />
@@ -168,7 +162,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769752075844</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="训练报告 创建激励语句">
+      <option name="closed" value="true" />
+      <created>1769758926067</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1769758926067</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,7 +193,8 @@
     <MESSAGE value="1222026三大项成绩变化曲线记录功能" />
     <MESSAGE value="calculateTotalVolume 方法逻辑错误已修改" />
     <MESSAGE value="BigTreeProgress曲线平滑过渡" />
-    <option name="LAST_COMMIT_MESSAGE" value="BigTreeProgress曲线平滑过渡" />
+    <MESSAGE value="训练报告 创建激励语句" />
+    <option name="LAST_COMMIT_MESSAGE" value="训练报告 创建激励语句" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

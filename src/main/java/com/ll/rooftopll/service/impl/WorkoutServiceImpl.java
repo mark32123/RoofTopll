@@ -4,9 +4,11 @@ import com.ll.rooftopll.commn.fight.InspirationConsts;
 import com.ll.rooftopll.dto.ActivityDetailDTO;
 import com.ll.rooftopll.dto.BigThreeDTO;
 import com.ll.rooftopll.dto.SessionSummaryDTO;
+import com.ll.rooftopll.entity.SupplementLog;
 import com.ll.rooftopll.entity.WorkoutActivity;
 import com.ll.rooftopll.entity.WorkoutSession;
 import com.ll.rooftopll.entity.WorkoutSet;
+import com.ll.rooftopll.mapper.SupplementLogMapper;
 import com.ll.rooftopll.mapper.WorkoutActivityMapper;
 import com.ll.rooftopll.mapper.WorkoutSessionMapper;
 import com.ll.rooftopll.mapper.WorkoutSetMapper;
@@ -20,6 +22,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
+
 @Service
 public class WorkoutServiceImpl implements WorkoutService {
 
@@ -30,6 +33,8 @@ public class WorkoutServiceImpl implements WorkoutService {
     private WorkoutActivityMapper activityMapper;
     @Autowired
     private WorkoutSetMapper setMapper;
+    @Autowired
+    private SupplementLogMapper supplementLogMapper;
 
     @Override
     @Transactional // 👈 必须开启事务，防止数据入库一半报错
@@ -99,11 +104,11 @@ public class WorkoutServiceImpl implements WorkoutService {
     @Override
     @Transactional
     public SessionSummaryDTO endCurrentSession(Long userId) {
-        // 1. 定位活跃会话
+
         WorkoutSession session = sessionMapper.findActiveSession(userId);
         if (session == null) throw new RuntimeException("Mark，当前没有正在进行的训练哦");
 
-        // 2. 结束会话并计算各项指标
+        // 结束训练并计算各项指标
         LocalDateTime now = LocalDateTime.now();
         session.setEndTime(now);
 
@@ -113,16 +118,20 @@ public class WorkoutServiceImpl implements WorkoutService {
 
         sessionMapper.updateSessionEnd(session);
 
-        // 3. 聚合动作详情
+        // 训练详情
         List<ActivityDetailDTO> details = sessionMapper.getSessionDetails(session.getId());
 
-        // 4. 赋予进步标签
+        SessionSummaryDTO summary = new SessionSummaryDTO();
+
+        // 补剂记录
+        List<SupplementLog> supplements = supplementLogMapper.selectBySessionId(session.getId());
+        summary.setSupplements(supplements);
+
+        // 赋予进步标签
         for (ActivityDetailDTO activity : details) {
             activity.setAchievementTag(InspirationConsts.TAG_NORMAL);
         }
 
-        // 5. 装配 DTO
-        SessionSummaryDTO summary = new SessionSummaryDTO();
         summary.setSessionId(session.getId());
         summary.setStartTime(session.getStartTime());
         summary.setEndTime(now);
@@ -185,5 +194,22 @@ public class WorkoutServiceImpl implements WorkoutService {
         summary.setActivities(activities);
 
         return summary;
+    }
+
+    // WorkoutServiceImpl.java
+    @Override
+    public void logSupplement(SupplementLog log) {
+        // 1. 健壮性检查：如果没有手动设置时间，自动填充当前时间
+        if (log.getTakenTime() == null) {
+            log.setTakenTime(LocalDateTime.now());
+        }
+
+        // 2. 调用 Mapper 插入数据库
+        // 注意：这里需要注入你新创建的 SupplementLogMapper
+        int rows = supplementLogMapper.insert(log);
+
+        if (rows <= 0) {
+            throw new RuntimeException("Mark，补剂数据存入失败了，检查下数据库连接？");
+        }
     }
 }
