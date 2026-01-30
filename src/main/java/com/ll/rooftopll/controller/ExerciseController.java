@@ -15,7 +15,7 @@ public class ExerciseController {
     @Autowired
     private ExerciseService exerciseService;
 
-    // 1. 获取可用动作列表（系统 + 个人）
+    // 1. 获取可用动作列表
     @GetMapping("/list")
     public Result<List<Exercise>> list(@RequestParam(defaultValue = "0") Long userId) {
         return Result.success(exerciseService.getAvailableExercises(userId));

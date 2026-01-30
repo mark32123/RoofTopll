@@ -118,7 +118,35 @@ public class WorkoutServiceImpl implements WorkoutService {
 
     @Override
     public List<BigThreeDTO> getBigThreeProgress(Long userId) {
-        // 这一行搞定所有逻辑：直接把数据库查出来的列表扔给前端
-        return sessionMapper.getBigThreeProgress(userId);
+
+        List<BigThreeDTO> rawData = sessionMapper.getBigThreeProgress(userId);
+
+        BigDecimal lastSquat = BigDecimal.ZERO;
+        BigDecimal lastBench = BigDecimal.ZERO;
+        BigDecimal lastDeadlift = BigDecimal.ZERO;
+
+        for (BigThreeDTO day : rawData) {
+            if (day.getSquat().compareTo(BigDecimal.ZERO) == 0) {
+                day.setSquat(lastSquat); // 如果今天没练，沿用上一次的
+            } else {
+                lastSquat = day.getSquat(); // 如果今天练了，更新“最近一次”记录
+            }
+
+            if (day.getBench().compareTo(BigDecimal.ZERO) == 0) {
+                day.setBench(lastBench);
+            } else {
+                lastBench = day.getBench();
+            }
+
+            if (day.getDeadlift().compareTo(BigDecimal.ZERO) == 0) {
+                day.setDeadlift(lastDeadlift);
+            } else {
+                lastDeadlift = day.getDeadlift();
+            }
+
+            day.setTotal(day.getSquat().add(day.getBench()).add(day.getDeadlift()));
+        }
+
+        return rawData;
     }
 }
