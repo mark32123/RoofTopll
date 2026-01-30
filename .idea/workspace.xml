@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae39027a-2cc4-4fdd-b879-2af51988778e" name="更改" comment="训练报告 创建激励语句">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/dto/SupplementTemplateDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/controller/SupplementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/controller/SupplementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/dto/SessionSummaryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/dto/SessionSummaryDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/mapper/SupplementLogMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/mapper/SupplementLogMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/service/WorkoutService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/service/WorkoutService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/service/impl/WorkoutServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/service/impl/WorkoutServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/service/WorkoutService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/service/WorkoutService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/service/impl/WorkoutServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/service/impl/WorkoutServiceImpl.class" afterDir="false" />
-    </list>
+    <list default="true" id="ae39027a-2cc4-4fdd-b879-2af51988778e" name="更改" comment="补剂记录" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -120,7 +110,7 @@
       <workItem from="1769743965188" duration="241000" />
       <workItem from="1769748850260" duration="2303000" />
       <workItem from="1769752004015" duration="473000" />
-      <workItem from="1769756607773" duration="3338000" />
+      <workItem from="1769756607773" duration="3873000" />
     </task>
     <task id="LOCAL-00001" summary="1142026添加计划，添加动作，核心的“增、删、查”">
       <option name="closed" value="true" />
@@ -170,7 +160,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769758926067</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="补剂记录">
+      <option name="closed" value="true" />
+      <created>1769760129988</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1769760129988</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,7 +192,8 @@
     <MESSAGE value="calculateTotalVolume 方法逻辑错误已修改" />
     <MESSAGE value="BigTreeProgress曲线平滑过渡" />
     <MESSAGE value="训练报告 创建激励语句" />
-    <option name="LAST_COMMIT_MESSAGE" value="训练报告 创建激励语句" />
+    <MESSAGE value="补剂记录" />
+    <option name="LAST_COMMIT_MESSAGE" value="补剂记录" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

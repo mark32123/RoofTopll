@@ -31,4 +31,5 @@ public class UserController {
         List<WeightLog> history = userService.getWeightHistory(userId);
         return Result.success(history);
     }
+
 }
