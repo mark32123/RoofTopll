@@ -1,0 +1,41 @@
+package com.ll.rooftopll.controller;
+
+import com.ll.rooftopll.commn.api.Result;
+import com.ll.rooftopll.entity.RMResponse;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
+@RestController
+@RequestMapping("/tool")
+public class ToolController {
+
+    @GetMapping("/rm-calc")
+    public Result<RMResponse> calculateRM(@RequestParam Double weight, @RequestParam Integer reps) {
+        if (reps <= 0) return Result.error("次数必须大于0哦");
+
+        // 1. Epley 公式
+        double epley = weight * (1 + reps / 30.0);
+        // 2. Brzycki 公式
+        double brzycki = weight * (36.0 / (37.0 - reps));
+        // 3. Lombardi 公式
+        double lombardi = weight * Math.pow(reps, 0.1);
+
+        // 计算平均值
+        double average = (epley + brzycki + lombardi) / 3.0;
+
+        // 封装返回结果
+        RMResponse res = new RMResponse();
+        res.setEpley(BigDecimal.valueOf(epley).setScale(2, RoundingMode.HALF_UP));
+        res.setBrzycki(BigDecimal.valueOf(brzycki).setScale(2, RoundingMode.HALF_UP));
+        res.setLombardi(BigDecimal.valueOf(lombardi).setScale(2, RoundingMode.HALF_UP));
+        res.setAverage(BigDecimal.valueOf(average).setScale(2, RoundingMode.HALF_UP));
+
+        return Result.success(res);
+    }
+}
+

@@ -1,13 +1,20 @@
 package com.ll.rooftopll.mapper;
 
 import com.ll.rooftopll.entity.User;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 @Mapper
 public interface UserMapper {
     User findByUsername(String username);
-    int insertUser(User user);
-    int updateAvatar(@Param("id") Long id, @Param("avatar") String avatar);
+//    int insertUser(User user);
+//    int updateAvatar(@Param("id") Long id, @Param("avatar") String avatar);
+
+    @Insert("INSERT INTO user(username, password, weight, target_weight) " +
+            "VALUES(#{username}, #{password}, #{weight}, #{targetWeight})")
+    @Options(useGeneratedKeys = true, keyProperty = "id")
+    int insert(User user);
 }

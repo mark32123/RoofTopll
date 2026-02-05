@@ -2,6 +2,7 @@ package com.ll.rooftopll.service;
 
 
 
+import com.ll.rooftopll.entity.User;
 import com.ll.rooftopll.entity.WeightLog;
 
 
@@ -14,4 +15,8 @@ public interface UserService {
 
     // 获取体重历史数据（用于画曲线图）
     List<WeightLog> getWeightHistory(Long userId);
+
+    User login(String username, String password);
+
+    void save(User user);
 }

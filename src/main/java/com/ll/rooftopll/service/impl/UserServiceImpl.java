@@ -1,8 +1,11 @@
 package com.ll.rooftopll.service.impl;
+import com.ll.rooftopll.entity.User;
 import com.ll.rooftopll.entity.WeightLog;
+import com.ll.rooftopll.mapper.UserMapper;
 import com.ll.rooftopll.mapper.WeightLogMapper;
 import com.ll.rooftopll.service.UserService;
 import jakarta.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -14,6 +17,8 @@ public class UserServiceImpl implements UserService {
 
     @Resource
     private WeightLogMapper weightLogMapper;
+    @Autowired
+    private UserMapper userMapper;
 
     /**
      * 记录或更新当日体重
@@ -36,5 +41,32 @@ public class UserServiceImpl implements UserService {
      */
     public List<WeightLog> getWeightHistory(Long userId) {
         return weightLogMapper.selectWeightHistory(userId);
+    }
+
+    /**
+     * 登录
+     * @param username
+     * @param password
+     * @return
+     */
+    public User login(String username, String password) {
+        User user = userMapper.findByUsername(username);
+        if (user != null && user.getPassword().equals(password)) {
+            return user; // 登录成功
+        }
+        return null; // 登录失败
+    }
+
+    /**
+     *  注册
+     * @param user
+     */
+    public void save(User user) {
+        // 检查用户名是否重复
+        User existing = userMapper.findByUsername(user.getUsername());
+        if (existing != null) {
+            throw new RuntimeException("Mark，这个名字已经被占用了哦");
+        }
+        userMapper.insert(user);
     }
 }
