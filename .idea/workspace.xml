@@ -4,14 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae39027a-2cc4-4fdd-b879-2af51988778e" name="更改" comment="rm计算公式-utils类添加">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/controller/ToolController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/entity/RMResponse.java" afterDir="false" />
+    <list default="true" id="ae39027a-2cc4-4fdd-b879-2af51988778e" name="更改" comment="user&amp;toolcontroller&amp;rm响应类">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/mapper/SupplementLogMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/mapper/SupplementLogMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/commn/utils/FormulaUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/mapper/SupplementLogMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/mapper/SupplementLogMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/mapper/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/mapper/UserMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/service/impl/UserServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +190,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769760695741</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="user&amp;toolcontroller&amp;rm响应类">
+      <option name="closed" value="true" />
+      <created>1770270678799</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1770270678799</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,7 +224,8 @@
     <MESSAGE value="训练报告 创建激励语句" />
     <MESSAGE value="补剂记录" />
     <MESSAGE value="rm计算公式-utils类添加" />
-    <option name="LAST_COMMIT_MESSAGE" value="rm计算公式-utils类添加" />
+    <MESSAGE value="user&amp;toolcontroller&amp;rm响应类" />
+    <option name="LAST_COMMIT_MESSAGE" value="user&amp;toolcontroller&amp;rm响应类" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

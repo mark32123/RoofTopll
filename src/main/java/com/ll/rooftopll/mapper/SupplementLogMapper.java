@@ -13,5 +13,6 @@ public interface SupplementLogMapper {
             "VALUES (#{sessionId}, #{name}, #{dosage}, #{takenTime})")
     int insert(SupplementLog log);
 
+    @Select("SELECT * FROM supplement_log WHERE session_id = #{sessionId}")
     List<SupplementLog> selectBySessionId(Long sessionId);
 }

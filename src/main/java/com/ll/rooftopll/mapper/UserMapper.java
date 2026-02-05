@@ -13,8 +13,8 @@ public interface UserMapper {
 //    int insertUser(User user);
 //    int updateAvatar(@Param("id") Long id, @Param("avatar") String avatar);
 
-    @Insert("INSERT INTO user(username, password, weight, target_weight) " +
-            "VALUES(#{username}, #{password}, #{weight}, #{targetWeight})")
+    @Insert("INSERT INTO user(username, password) " +
+            "VALUES(#{username}, #{password})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     int insert(User user);
 }
