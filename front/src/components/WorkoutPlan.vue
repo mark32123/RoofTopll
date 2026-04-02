@@ -9,7 +9,7 @@
 
     <!-- 今日训练计划 -->
     <div class="plans-section">
-      <h2 class="section-title">📅 今日训练计划</h2>
+      <h2 class="section-title">今日训练计划</h2>
       <div v-if="todayPlans.length > 0" class="plans-grid">
         <div 
           v-for="plan in todayPlans" 
@@ -25,25 +25,23 @@
                 @click.stop="openEditModal(plan)"
                 title="编辑"
               >
-                ✏️
+                编辑
               </button>
               <button 
                 class="btn-icon-action" 
                 @click.stop="deletePlan(plan.id)"
                 title="删除"
               >
-                🗑️
+                删除
               </button>
             </div>
           </div>
           <p class="plan-card-desc">{{ plan.description || '暂无描述' }}</p>
           <div class="plan-card-stats">
             <span class="stat-item">
-              <span class="stat-icon">🏋️</span>
               {{ plan.activities?.length || 0 }} 个动作
             </span>
             <span class="stat-item">
-              <span class="stat-icon">📊</span>
               {{ getTotalSets(plan) }} 组
             </span>
           </div>
@@ -65,7 +63,7 @@
         </div>
       </div>
       <div v-else class="empty-state">
-        <div class="empty-icon">📝</div>
+        <div class="empty-icon"></div>
         <p>今天还没有训练计划</p>
         <p class="empty-hint">点击上方"新建计划"开始训练吧！</p>
       </div>
@@ -73,22 +71,32 @@
 
     <!-- 历史训练计划 -->
     <div class="plans-section">
-      <h2 class="section-title">📜 历史训练计划</h2>
+      <div class="section-header-with-link">
+        <h2 class="section-title">历史训练计划</h2>
+        <button 
+          v-if="historyPlans.length > 2" 
+          class="btn btn-sm btn-link" 
+          @click="showHistoryView = true"
+        >
+          查看全部 →
+        </button>
+      </div>
       <div v-if="historyPlans.length > 0" class="plans-list-compact">
         <div 
-          v-for="plan in historyPlans" 
+          v-for="plan in historyPlans.slice(0, 2)" 
           :key="plan.id" 
           class="plan-item-compact"
           @click="viewPlanDetail(plan)"
         >
           <div class="plan-item-main">
-            <div class="plan-item-icon">📋</div>
+            <div class="plan-item-icon"></div>
             <div class="plan-item-content">
               <h4 class="plan-item-title">{{ plan.name }}</h4>
               <p class="plan-item-desc">{{ plan.description || '暂无描述' }}</p>
               <div class="plan-item-meta">
                 <span class="meta-tag">{{ plan.activities?.length || 0 }} 个动作</span>
                 <span class="meta-tag">{{ getTotalSets(plan) }} 组</span>
+                <span class="meta-tag date-tag">{{ formatDate(plan.createdAt) }}</span>
               </div>
             </div>
           </div>
@@ -109,14 +117,14 @@
         </div>
       </div>
       <div v-else class="empty-state">
-        <div class="empty-icon">📚</div>
+        <div class="empty-icon"></div>
         <p>还没有历史训练计划</p>
       </div>
     </div>
 
     <!-- 训练计划模板 -->
     <div class="plans-section">
-      <h2 class="section-title">💡 推荐训练模板</h2>
+      <h2 class="section-title">推荐训练模板</h2>
       <div class="templates-grid">
         <div 
           v-for="template in templates" 
@@ -142,6 +150,51 @@
         </div>
       </div>
     </div>
+
+    <!-- 历史计划查看全部弹窗 -->
+    <Modal :show="showHistoryView" @close="showHistoryView = false">
+      <div class="history-view-modal">
+        <div class="modal-header">
+          <h3>历史训练计划</h3>
+          <button class="btn-icon-close" @click="showHistoryView = false">×</button>
+        </div>
+        
+        <div v-if="historyPlans.length > 0" class="history-list">
+          <div 
+            v-for="plan in historyPlans" 
+            :key="plan.id" 
+            class="history-item"
+          >
+            <div class="history-item-content" @click="viewPlanDetail(plan)">
+              <h4 class="history-item-title">{{ plan.name }}</h4>
+              <p class="history-item-desc">{{ plan.description || '暂无描述' }}</p>
+              <div class="history-item-meta">
+                <span class="meta-tag">{{ plan.activities?.length || 0 }} 个动作</span>
+                <span class="meta-tag">{{ getTotalSets(plan) }} 组</span>
+                <span class="meta-tag date-tag">{{ formatDate(plan.createdAt) }}</span>
+              </div>
+            </div>
+            <div class="history-item-actions">
+              <button 
+                class="btn btn-sm btn-outline" 
+                @click.stop="openEditModal(plan)"
+              >
+                编辑
+              </button>
+              <button 
+                class="btn btn-sm btn-danger-outline" 
+                @click.stop="deletePlan(plan.id)"
+              >
+                删除
+              </button>
+            </div>
+          </div>
+        </div>
+        <div v-else class="empty-state-small">
+          <p>暂无历史训练计划</p>
+        </div>
+      </div>
+    </Modal>
 
     <!-- 计划详情弹窗 -->
     <Modal :show="showDetailModal" @close="showDetailModal = false">
@@ -191,7 +244,7 @@
         <!-- 动作列表 -->
         <div class="activities-section">
           <div class="section-header">
-            <h4>🏋️ 训练动作</h4>
+            <h4>训练动作</h4>
             <button type="button" class="btn btn-sm btn-outline" @click="addActivity">+ 添加动作</button>
           </div>
           
@@ -262,6 +315,7 @@ import Modal from './Modal.vue'
 const plans = ref<any[]>([])
 const showModal = ref(false)
 const showDetailModal = ref(false)
+const showHistoryView = ref(false)
 const isEditing = ref(false)
 const editablePlan = ref<any>({ activities: [] })
 const selectedPlan = ref<any>(null)
@@ -308,14 +362,28 @@ const templates = ref([
 
 // 计算属性：区分今日计划和历史计划
 const todayPlans = computed(() => {
-  // 这里简单地将所有计划都视为今日计划，后续可以根据创建时间筛选
-  return plans.value;
-})
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  
+  return plans.value.filter(plan => {
+    if (!plan.createdAt) return false;
+    const planDate = new Date(plan.createdAt);
+    planDate.setHours(0, 0, 0, 0);
+    return planDate.getTime() === today.getTime();
+  });
+});
 
 const historyPlans = computed(() => {
-  // 目前没有历史计划，后续可以根据日期筛选
-  return [];
-})
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  
+  return plans.value.filter(plan => {
+    if (!plan.createdAt) return true;
+    const planDate = new Date(plan.createdAt);
+    planDate.setHours(0, 0, 0, 0);
+    return planDate.getTime() < today.getTime();
+  });
+});
 
 async function fetchPlans() {
   try {
@@ -353,6 +421,23 @@ function getTotalSets(plan: any): number {
   return plan.activities.reduce((total: number, activity: any) => {
     return total + (activity.sets?.length || 0);
   }, 0);
+}
+
+function formatDate(dateString: string): string {
+  if (!dateString) return '';
+  const date = new Date(dateString);
+  const now = new Date();
+  const diff = now.getTime() - date.getTime();
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  
+  if (days === 0) return '今天';
+  if (days === 1) return '昨天';
+  if (days < 7) return `${days}天前`;
+  if (days < 30) return `${Math.floor(days / 7)}周前`;
+  
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  return `${month}月${day}日`;
 }
 
 function viewPlanDetail(plan: any) {
@@ -524,13 +609,35 @@ onMounted(() => {
   margin-bottom: 40px;
 }
 
+.section-header-with-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
 .section-title {
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin: 0;
   color: var(--text-color);
   border-left: 4px solid #ff4757;
   padding-left: 12px;
+}
+
+.btn-link {
+  background: transparent;
+  color: #ff6b7a;
+  border: none;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+}
+
+.btn-link:hover {
+  background: rgba(255, 71, 87, 0.1);
 }
 
 /* 今日计划卡片网格 */
@@ -575,22 +682,25 @@ onMounted(() => {
 }
 
 .btn-icon-action {
-  background: rgba(255, 255, 255, 0.1);
-  border: none;
+  background: rgba(255, 71, 87, 0.15);
+  border: 1px solid rgba(255, 71, 87, 0.3);
   border-radius: 6px;
-  width: 32px;
+  width: auto;
   height: 32px;
+  padding: 0 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-size: 16px;
+  font-size: 13px;
+  color: #ff6b7a;
 }
 
 .btn-icon-action:hover {
-  background: rgba(255, 71, 87, 0.2);
-  transform: scale(1.1);
+  background: rgba(255, 71, 87, 0.25);
+  border-color: rgba(255, 71, 87, 0.5);
+  transform: scale(1.05);
 }
 
 .plan-card-desc {
@@ -669,8 +779,10 @@ onMounted(() => {
 }
 
 .plan-item-icon {
-  font-size: 32px;
-  opacity: 0.5;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
 }
 
 .plan-item-content {
@@ -701,6 +813,11 @@ onMounted(() => {
   padding: 2px 8px;
   border-radius: 8px;
   font-size: 12px;
+}
+
+.meta-tag.date-tag {
+  background: rgba(255, 71, 87, 0.15);
+  color: #ff6b7a;
 }
 
 .plan-item-actions {
@@ -787,9 +904,11 @@ onMounted(() => {
 }
 
 .empty-icon {
-  font-size: 64px;
-  margin-bottom: 15px;
-  opacity: 0.3;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
 }
 
 .empty-state p {
@@ -972,6 +1091,11 @@ onMounted(() => {
   font-size: 14px;
 }
 
+.exercise-select option {
+  background: #2a2a2a;
+  color: var(--text-color);
+}
+
 .sets-section {
   margin-top: 10px;
   padding-left: 10px;
@@ -1097,5 +1221,95 @@ onMounted(() => {
   gap: 10px;
   justify-content: flex-end;
   margin-top: 20px;
+}
+
+/* 历史计划查看全部弹窗 */
+.history-view-modal {
+  max-width: 800px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 20px;
+  color: var(--text-color);
+}
+
+.btn-icon-close {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--text-color);
+  font-size: 24px;
+}
+
+.btn-icon-close:hover {
+  background: rgba(255, 71, 87, 0.2);
+  color: #ff6b7a;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.history-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.history-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 71, 87, 0.2);
+}
+
+.history-item-content {
+  flex: 1;
+  cursor: pointer;
+}
+
+.history-item-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 5px 0;
+  color: var(--text-color);
+}
+
+.history-item-desc {
+  font-size: 13px;
+  color: #888;
+  margin: 0 0 8px 0;
+}
+
+.history-item-meta {
+  display: flex;
+  gap: 10px;
+}
+
+.history-item-actions {
+  display: flex;
+  gap: 8px;
 }
 </style>

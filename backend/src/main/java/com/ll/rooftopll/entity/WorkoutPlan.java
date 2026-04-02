@@ -10,5 +10,6 @@ public class WorkoutPlan {
     private Long userId;
     private String name;
     private String description;
+    private java.time.LocalDateTime createdAt;
     private List<WorkoutPlanActivity> activities = new java.util.ArrayList<>();
 }

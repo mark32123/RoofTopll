@@ -7,6 +7,7 @@
         <result property="userId" column="user_id"/>
         <result property="name" column="name"/>
         <result property="description" column="description"/>
+        <result property="createdAt" column="created_at"/>
         <collection property="activities" ofType="com.ll.rooftopll.entity.WorkoutPlanActivity"
                     select="com.ll.rooftopll.mapper.WorkoutPlanActivityMapper.findByPlanId" column="id"/>
     </resultMap>
@@ -20,7 +21,7 @@
     </select>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO workout_plan (user_id, name, description) VALUES (#{userId}, #{name}, #{description})
+        INSERT INTO workout_plan (user_id, name, description, created_at) VALUES (#{userId}, #{name}, #{description}, NOW())
     </insert>
 
     <update id="update">
