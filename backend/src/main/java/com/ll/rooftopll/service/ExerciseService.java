@@ -8,4 +8,5 @@ public interface ExerciseService {
     List<Exercise> searchExercises(String name, Long userId);
     List<Exercise> getCommonExercises();
     void createCustomExercise(Exercise exercise);
+    void deleteExercise(Long id);
 }

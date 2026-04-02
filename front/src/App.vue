@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header v-if="currentTab === 'WorkoutPlan'">
     <h1>{{ title }}</h1>
   </header>
 
@@ -10,6 +10,7 @@
   <footer>
     <nav>
       <button @click="setCurrentComponent('WorkoutPlan')">训练计划</button>
+      <button @click="setCurrentComponent('ExerciseLibrary')">动作库</button>
       <button @click="setCurrentComponent('RMCalculator')">RM 计算器</button>
       <button @click="setCurrentComponent('ProgressChart')">数据记录</button>
     </nav>
@@ -19,6 +20,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import WorkoutPlan from './components/WorkoutPlan.vue'
+import ExerciseLibrary from './components/ExerciseLibrary.vue'
 import RMCalculator from './components/RMCalculator.vue'
 import ProgressChart from './components/ProgressChart.vue'
 
@@ -26,6 +28,7 @@ const title = ref('RoofTopLL Powerlifting')
 
 const components: { [key: string]: any } = {
   WorkoutPlan,
+  ExerciseLibrary,
   RMCalculator,
   ProgressChart,
 }

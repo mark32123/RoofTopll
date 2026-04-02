@@ -19,4 +19,7 @@ public interface ExerciseMapper {
     // 获取常用动作
     List<Exercise> selectCommon();
 
+    // 删除动作
+    int deleteById(@Param("id") Long id);
+
 }

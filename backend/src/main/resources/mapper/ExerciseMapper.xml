@@ -23,4 +23,8 @@
     <select id="selectCommon" resultType="com.ll.rooftopll.entity.Exercise">
         SELECT * FROM exercise WHERE is_big_three = 1
     </select>
+
+    <delete id="deleteById">
+        DELETE FROM exercise WHERE id = #{id}
+    </delete>
 </mapper>

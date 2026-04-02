@@ -41,4 +41,11 @@ public class ExerciseController {
         exerciseService.createCustomExercise(exercise);
         return Result.success();
     }
+
+    // 5. 删除自定义动作
+    @DeleteMapping("/{id}")
+    public Result<Void> delete(@PathVariable Long id) {
+        exerciseService.deleteExercise(id);
+        return Result.success();
+    }
 }

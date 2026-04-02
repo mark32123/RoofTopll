@@ -34,4 +34,9 @@ public class ExerciseServiceImpl implements ExerciseService {
     public void createCustomExercise(Exercise exercise) {
         exerciseMapper.insert(exercise);
     }
+
+    @Override
+    public void deleteExercise(Long id) {
+        exerciseMapper.deleteById(id);
+    }
 }
