@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ll.rooftopll.mapper.ExerciseMapper">
+    <select id="selectAvailableExercises" resultType="com.ll.rooftopll.entity.Exercise">
+        SELECT id, name, category, is_big_three as isBigThree, user_id as userId
+        FROM exercise
+        WHERE user_id = 0 OR user_id = #{userId}
+        ORDER BY is_big_three DESC, category ASC
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO exercise (name, category, user_id,is_big_three)
+        VALUES (#{name}, #{category},#{userId},#{isBigThree})
+    </insert>
+
+    <select id="searchExercises" resultType="com.ll.rooftopll.entity.Exercise">
+        SELECT id, name, category, is_big_three as isBigThree, user_id as userId
+        FROM exercise
+        WHERE (user_id = 0 OR user_id = #{userId})
+          AND name LIKE CONCAT('%', #{name}, '%')
+    </select>
+
+    <select id="selectCommon" resultType="com.ll.rooftopll.entity.Exercise">
+        SELECT * FROM exercise WHERE is_big_three = 1
+    </select>
+</mapper>

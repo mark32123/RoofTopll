@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ll.rooftopll.mapper.WeightLogMapper">
+    <insert id="upsertWeight">
+        INSERT INTO weight_log (user_id, weight, log_date)
+        VALUES (#{userId}, #{weight}, #{logDate})
+        ON DUPLICATE KEY UPDATE weight = #{weight}
+    </insert>
+
+    <select id="selectWeightHistory" resultType="com.ll.rooftopll.entity.WeightLog">
+        SELECT weight, log_date as logDate
+        FROM weight_log
+        WHERE user_id = #{userId}
+        ORDER BY log_date DESC
+    </select>
+</mapper>

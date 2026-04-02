@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ll.rooftopll.mapper.WorkoutPlanSetMapper">
+
+    <select id="findByActivityId" resultType="com.ll.rooftopll.entity.WorkoutPlanSet">
+        SELECT * FROM workout_plan_set WHERE plan_activity_id = #{activityId} ORDER BY set_index
+    </select>
+
+    <insert id="insert">
+        INSERT INTO workout_plan_set (plan_activity_id, set_index, weight, reps) VALUES (#{planActivityId}, #{setIndex}, #{weight}, #{reps})
+    </insert>
+
+    <delete id="deleteByActivityIds">
+        DELETE FROM workout_plan_set WHERE plan_activity_id IN
+        <foreach item="item" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+</mapper>
