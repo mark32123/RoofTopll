@@ -40,13 +40,24 @@ function setCurrentComponent(tab: string) {
 </script>
 
 <style scoped>
+#app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 header {
   text-align: center;
-  margin-bottom: 2rem;
+  padding: 1.5rem 1rem;
+  background-color: var(--secondary-color);
+  border-bottom: 1px solid #333;
 }
 
 main {
   flex: 1;
+  overflow-y: auto; /* 让主内容区可以滚动 */
+  padding: 1rem;
+  padding-bottom: 6rem; /* 避免被底部导航栏遮挡 */
 }
 
 footer {
@@ -55,19 +66,29 @@ footer {
   left: 0;
   right: 0;
   background-color: var(--secondary-color);
-  padding: 1rem;
+  border-top: 1px solid #333;
+  z-index: 1000;
 }
 
 nav {
   display: flex;
   justify-content: space-around;
+  padding: 0.5rem 0;
 }
 
 nav button {
   background: none;
   border: none;
-  color: var(--text-color);
+  color: #888; /* 未选中颜色 */
   font-size: 1rem;
   cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+}
+
+nav button.active {
+  color: var(--primary-color); /* 选中颜色 */
+  font-weight: bold;
 }
 </style>
