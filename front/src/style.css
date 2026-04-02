@@ -1,0 +1,42 @@
+:root {
+  --primary-color: #FF0000; /* 红色 */
+  --secondary-color: #1a1a1a; /* 深灰色 */
+  --background-color: #000000; /* 黑色 */
+  --text-color: #FFFFFF; /* 白色 */
+  --border-radius: 12px; /* 圆角 */
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  padding: 1rem;
+}
+
+/* 基础组件样式 */
+.btn {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #cc0000; /* 深红色 */
+}
+
+.card {
+  background-color: var(--secondary-color);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}

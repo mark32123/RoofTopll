@@ -4,109 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f37a9375-c42f-4d70-a0ec-eaab40565644" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/ApifoxUploaderProjectSetting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ApifoxUploaderProjectSetting.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8ab8804c-a8b5-48ef-a108-43721d2a3214.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8ab8804c-a8b5-48ef-a108-43721d2a3214/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8ab8804c-a8b5-48ef-a108-43721d2a3214/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8ab8804c-a8b5-48ef-a108-43721d2a3214/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/data_source_mapping.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/RoofTopllApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/commn/api/Result.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/commn/fight/InspirationConsts.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/commn/utils/DateUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/commn/utils/RMCalculator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/controller/ExerciseController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/controller/SupplementController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/controller/ToolController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/controller/WorkoutController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/dto/ActivityDetailDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/dto/BigThreeDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/dto/SessionSummaryDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/dto/SetDetailDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/dto/SupplementTemplateDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/dto/WorkoutActivityDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/entity/Exercise.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/entity/RMResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/entity/SupplementLog.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/entity/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/entity/WeightLog.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/entity/WorkoutActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/entity/WorkoutSession.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/entity/WorkoutSet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/mapper/ExerciseMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/mapper/SupplementLogMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/mapper/UserMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/mapper/WeightLogMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/mapper/WorkoutActivityMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/mapper/WorkoutSessionMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/mapper/WorkoutSetMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/service/ExerciseService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/service/SupplementService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/service/WorkoutService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/service/impl/ExerciseServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/service/impl/SupplementServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/service/impl/UserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ll/rooftopll/service/impl/WorkoutServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ExerciseMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/SupplementMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/WeightLogMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/WorkoutActivityMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/WorkoutSessionMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/WorkoutSetMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ll/rooftopll/RoofTopllApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/RoofTopllApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/commn/api/Result.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/commn/utils/DateUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/controller/ExerciseController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/controller/SupplementController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/controller/UserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/controller/WorkoutController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/dto/WorkoutActivityDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/entity/Exercise.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/entity/SupplementLog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/entity/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/entity/WeightLog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/entity/WorkoutActivity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/entity/WorkoutSession.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/entity/WorkoutSet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/mapper/ExerciseMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/mapper/SupplementLogMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/mapper/UserMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/mapper/WeightLogMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/mapper/WorkoutActivityMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/mapper/WorkoutSessionMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/mapper/WorkoutSetMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/service/ExerciseService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/service/SupplementService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/service/UserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/service/WorkoutService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/service/impl/ExerciseServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/service/impl/SupplementServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/service/impl/UserServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ll/rooftopll/service/impl/WorkoutServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/ExerciseMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/SupplementMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/WeightLogMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/WorkoutActivityMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/WorkoutSessionMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/WorkoutSetMapper.xml" beforeDir="false" />
-    </list>
+    <list default="true" id="f37a9375-c42f-4d70-a0ec-eaab40565644" name="更改" comment="更新前端代码" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -178,7 +76,20 @@
       <option name="presentableId" value="Default" />
       <updated>1775031916132</updated>
     </task>
+    <task id="LOCAL-00001" summary="更新前端代码">
+      <option name="closed" value="true" />
+      <created>1775118284710</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1775118284711</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="更新前端代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新前端代码" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
