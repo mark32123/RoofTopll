@@ -248,7 +248,7 @@ x<template>
             <button type="button" class="btn btn-sm btn-outline" @click="addActivity">+ 添加动作</button>
           </div>
           
-          <div class="activities-scroll-container">
+          <div class="activities-scroll-container" @wheel.stop @touchmove.stop>
             <div v-for="(activity, actIndex) in editablePlan.activities" :key="actIndex" class="activity-item">
               <div class="activity-header">
                 <select v-model="activity.exerciseId" required class="exercise-select">
@@ -1106,7 +1106,7 @@ onMounted(() => {
 
 /* 滚动容器 */
 .activities-scroll-container {
-  max-height: 400px;
+  max-height: 280px;
   overflow-y: auto;
   padding-right: 8px;
   margin-top: 15px;

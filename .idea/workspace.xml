@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f37a9375-c42f-4d70-a0ec-eaab40565644" name="更改" comment="新建动作卡片添加了滚动容器，优化布局">
+    <list default="true" id="f37a9375-c42f-4d70-a0ec-eaab40565644" name="更改" comment="底部灵动岛样式导航（霓光红特效">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Modal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Modal.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/WorkoutPlan.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/WorkoutPlan.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +137,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775226085193</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="底部灵动岛样式导航（霓光红特效">
+      <option name="closed" value="true" />
+      <created>1775227265145</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1775227265145</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -157,7 +166,8 @@
     <MESSAGE value="动作库模块" />
     <MESSAGE value="重命名" />
     <MESSAGE value="新建动作卡片添加了滚动容器，优化布局" />
-    <option name="LAST_COMMIT_MESSAGE" value="新建动作卡片添加了滚动容器，优化布局" />
+    <MESSAGE value="底部灵动岛样式导航（霓光红特效" />
+    <option name="LAST_COMMIT_MESSAGE" value="底部灵动岛样式导航（霓光红特效" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
