@@ -1,4 +1,4 @@
-<template>
+x<template>
   <div class="workout-plans-container">
     <!-- 新建计划按钮 -->
     <div class="create-plan-section">
@@ -248,53 +248,55 @@
             <button type="button" class="btn btn-sm btn-outline" @click="addActivity">+ 添加动作</button>
           </div>
           
-          <div v-for="(activity, actIndex) in editablePlan.activities" :key="actIndex" class="activity-item">
-            <div class="activity-header">
-              <select v-model="activity.exerciseId" required class="exercise-select">
-                <option value="" disabled>选择动作</option>
-                <option v-for="exercise in exercises" :key="exercise.id" :value="exercise.id">
-                  {{ exercise.name }} ({{ exercise.category }})
-                </option>
-              </select>
-              <button type="button" class="btn-icon-remove" @click="removeActivity(actIndex)">×</button>
-            </div>
-            
-            <!-- 组数设置 -->
-            <div class="sets-section">
-              <div v-for="(set, setIndex) in activity.sets" :key="setIndex" class="set-item">
-                <span class="set-label">第{{ setIndex + 1 }}组</span>
-                <input 
-                  type="number" 
-                  v-model.number="set.weight" 
-                  placeholder="kg" 
-                  step="0.5" 
-                  min="0"
-                  class="set-input"
-                >
-                <span class="set-separator">×</span>
-                <input 
-                  type="number" 
-                  v-model.number="set.reps" 
-                  placeholder="次" 
-                  min="1"
-                  class="set-input reps"
-                >
-                <button 
-                  type="button" 
-                  class="btn-icon-remove" 
-                  @click="removeSet(actIndex, setIndex)"
-                >
-                  ×
-                </button>
+          <div class="activities-scroll-container">
+            <div v-for="(activity, actIndex) in editablePlan.activities" :key="actIndex" class="activity-item">
+              <div class="activity-header">
+                <select v-model="activity.exerciseId" required class="exercise-select">
+                  <option value="" disabled>选择动作</option>
+                  <option v-for="exercise in exercises" :key="exercise.id" :value="exercise.id">
+                    {{ exercise.name }} ({{ exercise.category }})
+                  </option>
+                </select>
+                <button type="button" class="btn-icon-remove" @click="removeActivity(actIndex)">×</button>
               </div>
               
-              <button 
-                type="button" 
-                class="btn btn-sm btn-outline btn-add-set" 
-                @click="addSet(actIndex)"
-              >
-                + 添加组数
-              </button>
+              <!-- 组数设置 -->
+              <div class="sets-section">
+                <div v-for="(set, setIndex) in activity.sets" :key="setIndex" class="set-item">
+                  <span class="set-label">第{{ setIndex + 1 }}组</span>
+                  <input 
+                    type="number" 
+                    v-model.number="set.weight" 
+                    placeholder="kg" 
+                    step="0.5" 
+                    min="0"
+                    class="set-input"
+                  >
+                  <span class="set-separator">×</span>
+                  <input 
+                    type="number" 
+                    v-model.number="set.reps" 
+                    placeholder="次" 
+                    min="1"
+                    class="set-input reps"
+                  >
+                  <button 
+                    type="button" 
+                    class="btn-icon-remove" 
+                    @click="removeSet(actIndex, setIndex)"
+                  >
+                    ×
+                  </button>
+                </div>
+                
+                <button 
+                  type="button" 
+                  class="btn btn-sm btn-outline btn-add-set" 
+                  @click="addSet(actIndex)"
+                >
+                  + 添加组数
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -651,9 +653,10 @@ onMounted(() => {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  padding: 20px;
+  padding: 20px 20px 15px 20px;
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-top: 8px;
 }
 
 .plan-card:hover {
@@ -751,38 +754,51 @@ onMounted(() => {
 .plans-list-compact {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
 .plan-item-compact {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-  padding: 15px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 18px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .plan-item-compact:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 71, 87, 0.2);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  border-color: rgba(255, 71, 87, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .plan-item-main {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 16px;
   flex: 1;
 }
 
 .plan-item-icon {
-  width: 40px;
-  height: 40px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, rgba(255, 71, 87, 0.2), rgba(255, 71, 87, 0.1));
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 71, 87, 0.2);
+}
+
+.plan-item-icon::before {
+  content: '🏋️';
 }
 
 .plan-item-content {
@@ -790,39 +806,61 @@ onMounted(() => {
 }
 
 .plan-item-title {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 600;
-  margin: 0 0 5px 0;
+  margin: 0 0 6px 0;
   color: var(--text-color);
+  letter-spacing: 0.3px;
 }
 
 .plan-item-desc {
   font-size: 13px;
   color: #888;
-  margin: 0 0 8px 0;
+  margin: 0 0 10px 0;
+  line-height: 1.5;
 }
 
 .plan-item-meta {
   display: flex;
-  gap: 10px;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .meta-tag {
-  background: rgba(100, 100, 100, 0.2);
-  color: #aaa;
-  padding: 2px 8px;
+  background: rgba(100, 100, 100, 0.25);
+  color: #bbb;
+  padding: 4px 10px;
   border-radius: 8px;
   font-size: 12px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.meta-tag:hover {
+  background: rgba(100, 100, 100, 0.35);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 .meta-tag.date-tag {
-  background: rgba(255, 71, 87, 0.15);
+  background: linear-gradient(135deg, rgba(255, 71, 87, 0.2), rgba(255, 71, 87, 0.1));
   color: #ff6b7a;
+  border-color: rgba(255, 71, 87, 0.3);
+}
+
+.meta-tag.date-tag:hover {
+  background: linear-gradient(135deg, rgba(255, 71, 87, 0.3), rgba(255, 71, 87, 0.15));
+  border-color: rgba(255, 71, 87, 0.4);
 }
 
 .plan-item-actions {
   display: flex;
+  flex-direction: column;
   gap: 8px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  margin-left: 16px;
 }
 
 /* 模板卡片 */
@@ -1064,6 +1102,32 @@ onMounted(() => {
   margin: 0;
   font-size: 16px;
   color: var(--text-color);
+}
+
+/* 滚动容器 */
+.activities-scroll-container {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 8px;
+  margin-top: 15px;
+}
+
+.activities-scroll-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.activities-scroll-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 3px;
+}
+
+.activities-scroll-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 71, 87, 0.3);
+  border-radius: 3px;
+}
+
+.activities-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 71, 87, 0.5);
 }
 
 .activity-item {
