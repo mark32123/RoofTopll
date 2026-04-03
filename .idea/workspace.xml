@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f37a9375-c42f-4d70-a0ec-eaab40565644" name="更改" comment="历史训练计划功能，前端优化">
+    <list default="true" id="f37a9375-c42f-4d70-a0ec-eaab40565644" name="更改" comment="动作库模块">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/data.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/update_schema.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ll/rooftopll/entity/WorkoutPlan.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ll/rooftopll/entity/WorkoutPlan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/mapper/WorkoutPlanMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/mapper/WorkoutPlanMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/WorkoutPlan.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/WorkoutPlan.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +106,23 @@
       <option name="project" value="LOCAL" />
       <updated>1775121069835</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="历史训练计划划分和显示规则">
+      <option name="closed" value="true" />
+      <created>1775129444929</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1775129444929</updated>
+    </task>
+    <task id="LOCAL-00005" summary="动作库模块">
+      <option name="closed" value="true" />
+      <created>1775142092252</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1775142092252</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -124,7 +139,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="更新前端代码" />
     <MESSAGE value="历史训练计划功能，前端优化" />
-    <option name="LAST_COMMIT_MESSAGE" value="历史训练计划功能，前端优化" />
+    <MESSAGE value="历史训练计划划分和显示规则" />
+    <MESSAGE value="动作库模块" />
+    <option name="LAST_COMMIT_MESSAGE" value="动作库模块" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -68,3 +68,13 @@ CREATE TABLE supplement_log (
     taken_time TIMESTAMP,
     FOREIGN KEY (session_id) REFERENCES workout_session(id)
 );
+
+-- Workout Plan Table
+CREATE TABLE workout_plan (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_id BIGINT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    description VARCHAR(500),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES user(id)
+);
