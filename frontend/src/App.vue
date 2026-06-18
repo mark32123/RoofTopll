@@ -30,33 +30,21 @@
 import { ref, computed, onMounted } from 'vue'
 import WorkoutPlan from './components/WorkoutPlan.vue'
 import ExerciseLibrary from './components/ExerciseLibrary.vue'
-import RMCalculator from './components/RMCalculator.vue'
-import ProgressChart from './components/ProgressChart.vue'
-import UserAuth from './components/UserAuth.vue'
-import WeightTracker from './components/WeightTracker.vue'
-import SupplementTracker from './components/SupplementTracker.vue'
+import MePage from './components/MePage.vue'
 
 const title = ref('RoofTopLL Powerlifting')
 const navRef = ref<HTMLElement | null>(null)
 
 const tabs = [
-  { key: 'WorkoutPlan', label: '训练计划', icon: '💪' },
-  { key: 'ExerciseLibrary', label: '动作库', icon: '🏋️' },
-  { key: 'RMCalculator', label: 'RM计算', icon: '📊' },
-  { key: 'ProgressChart', label: '进步曲线', icon: '📈' },
-  { key: 'WeightTracker', label: '体重', icon: '⚖️' },
-  { key: 'SupplementTracker', label: '补剂', icon: '💊' },
-  { key: 'UserAuth', label: '用户', icon: '👤' }
+  { key: 'WorkoutPlan', label: '训练', icon: '💪' },
+  { key: 'ExerciseLibrary', label: '动作', icon: '🏋️' },
+  { key: 'MePage', label: '我', icon: '👤' }
 ]
 
 const components: { [key: string]: any } = {
   WorkoutPlan,
   ExerciseLibrary,
-  RMCalculator,
-  ProgressChart,
-  WeightTracker,
-  SupplementTracker,
-  UserAuth
+  MePage
 }
 
 const currentTab = ref('WorkoutPlan')
@@ -88,10 +76,16 @@ onMounted(() => {
 </script>
 
 <style scoped>
+/* 隐藏滚动条 */
 #app-container {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  overflow: hidden;
+}
+
+#app-container::-webkit-scrollbar {
+  display: none;
 }
 
 header {
@@ -119,6 +113,12 @@ main {
   overflow-y: auto;
   padding: 1rem;
   padding-bottom: 8rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+main::-webkit-scrollbar {
+  display: none;
 }
 
 footer {
@@ -132,15 +132,15 @@ footer {
 }
 
 nav {
-  max-width: 600px;
+  max-width: 400px;
   margin: 0 auto;
   display: flex;
-  gap: 6px;
+  gap: 8px;
   justify-content: space-around;
   background: rgba(20, 20, 20, 0.92);
   backdrop-filter: blur(30px) saturate(180%);
   -webkit-backdrop-filter: blur(30px) saturate(180%);
-  padding: 8px 12px;
+  padding: 8px 16px;
   border-radius: 50px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow:
@@ -168,7 +168,7 @@ nav:hover {
   font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
-  padding: 10px 14px;
+  padding: 12px 20px;
   border-radius: 30px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   flex: 1;
@@ -186,7 +186,7 @@ nav:hover {
 }
 
 .btn-icon {
-  font-size: 16px;
+  font-size: 18px;
   z-index: 2;
 }
 
@@ -273,5 +273,32 @@ nav:hover {
     0 0 40px rgba(255, 71, 87, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
   transform: translateY(-2px) scale(1.08);
+}
+/* 全局隐藏滚动条 */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#app {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* 隐藏所有滚动条 */
+* {
+  scrollbar-width: none;           /* Firefox */
+  -ms-overflow-style: none;        /* IE/Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none;                   /* Chrome/Safari/Opera */
+}
+
+/* 如果需要滚动，使用 auto */
+.scrollable {
+  overflow-y: auto;
 }
 </style>

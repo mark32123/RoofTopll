@@ -4,23 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f37a9375-c42f-4d70-a0ec-eaab40565644" name="更改" comment="修改 Modal 组件来禁止底层页面的滚动">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/SupplementTracker.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/UserAuth.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/WeightTracker.vue" afterDir="false" />
+    <list default="true" id="f37a9375-c42f-4d70-a0ec-eaab40565644" name="更改" comment="重构应用布局并新增功能模块&#10;&#10;- 重构App.vue应用容器结构，统一头部和底部导航设计&#10;- 实现动态标签页系统，支持训练计划、动作库、RM计算器等功能切换&#10;- 新增用户认证、体重追踪和补剂追踪组件模块&#10;- 在动作库组件中添加动作创建和删除功能按钮&#10;- 优化进度图表组件，显示三大项统计数据和改进的可视化效果&#10;- 升级RM计算器组件，提供多公式计算结果和训练建议&#10;- 优化样式设计，提升界面美观度和用户体验">
+      <change afterPath="$PROJECT_DIR$/backend/docs/images/banner.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/docs/images/exercise-library.png.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/docs/images/progress-chart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/docs/images/rm-calculator.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/docs/images/supplement-tracker.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/docs/images/user-auth.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/docs/images/weight-tracker.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/docs/images/workout-plan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/MePage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ll/rooftopll/controller/ToolController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ll/rooftopll/controller/ToolController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ll/rooftopll/service/impl/WorkoutServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ll/rooftopll/service/impl/WorkoutServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/mapper/WorkoutPlanSetMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/mapper/WorkoutPlanSetMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/schema.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/ExerciseLibrary.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ExerciseLibrary.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Modal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Modal.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/ProgressChart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ProgressChart.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/RMCalculator.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/RMCalculator.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/WorkoutPlan.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/WorkoutPlan.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/UserAuth.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +164,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775228260205</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="重构应用布局并新增功能模块&#10;&#10;- 重构App.vue应用容器结构，统一头部和底部导航设计&#10;- 实现动态标签页系统，支持训练计划、动作库、RM计算器等功能切换&#10;- 新增用户认证、体重追踪和补剂追踪组件模块&#10;- 在动作库组件中添加动作创建和删除功能按钮&#10;- 优化进度图表组件，显示三大项统计数据和改进的可视化效果&#10;- 升级RM计算器组件，提供多公式计算结果和训练建议&#10;- 优化样式设计，提升界面美观度和用户体验">
+      <option name="closed" value="true" />
+      <created>1781772816907</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1781772816907</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -189,7 +195,8 @@
     <MESSAGE value="新建动作卡片添加了滚动容器，优化布局" />
     <MESSAGE value="底部灵动岛样式导航（霓光红特效" />
     <MESSAGE value="修改 Modal 组件来禁止底层页面的滚动" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改 Modal 组件来禁止底层页面的滚动" />
+    <MESSAGE value="重构应用布局并新增功能模块&#10;&#10;- 重构App.vue应用容器结构，统一头部和底部导航设计&#10;- 实现动态标签页系统，支持训练计划、动作库、RM计算器等功能切换&#10;- 新增用户认证、体重追踪和补剂追踪组件模块&#10;- 在动作库组件中添加动作创建和删除功能按钮&#10;- 优化进度图表组件，显示三大项统计数据和改进的可视化效果&#10;- 升级RM计算器组件，提供多公式计算结果和训练建议&#10;- 优化样式设计，提升界面美观度和用户体验" />
+    <option name="LAST_COMMIT_MESSAGE" value="重构应用布局并新增功能模块&#10;&#10;- 重构App.vue应用容器结构，统一头部和底部导航设计&#10;- 实现动态标签页系统，支持训练计划、动作库、RM计算器等功能切换&#10;- 新增用户认证、体重追踪和补剂追踪组件模块&#10;- 在动作库组件中添加动作创建和删除功能按钮&#10;- 优化进度图表组件，显示三大项统计数据和改进的可视化效果&#10;- 升级RM计算器组件，提供多公式计算结果和训练建议&#10;- 优化样式设计，提升界面美观度和用户体验" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

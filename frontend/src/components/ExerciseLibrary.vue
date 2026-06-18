@@ -510,8 +510,12 @@ onMounted(() => {
 .exercises-content {
   flex: 1;
   overflow-y: auto;
-  padding: 15px;
-  height: 100%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.exercises-content::-webkit-scrollbar {
+  display: none;                   /* Chrome/Safari/Opera */
 }
 
 .empty-state {

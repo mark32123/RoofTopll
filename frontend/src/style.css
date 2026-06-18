@@ -4,6 +4,7 @@
   --background-color: #000000; /* 黑色 */
   --text-color: #FFFFFF; /* 白色 */
   --border-radius: 12px; /* 圆角 */
+  --bg-color: #0a0a0a;
 }
 
 body {
@@ -107,4 +108,15 @@ input:focus, textarea:focus {
 
 .btn-close:hover {
   color: var(--text-color);
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;      /* Firefox */
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;        /* Chrome/Safari/Opera */
+  appearance: none;
+  margin: 0;
 }
