@@ -16,17 +16,11 @@ public class ToolController {
     public Result<RMResponse> calculateRM(@RequestParam Double weight, @RequestParam Integer reps) {
         if (reps <= 0) return Result.error("次数必须大于0哦");
 
-        // 1. Epley 公式
         double epley = weight * (1 + reps / 30.0);
-        // 2. Brzycki 公式
         double brzycki = weight * (36.0 / (37.0 - reps));
-        // 3. Lombardi 公式
         double lombardi = weight * Math.pow(reps, 0.1);
-
-        // 计算平均值
         double average = (epley + brzycki + lombardi) / 3.0;
 
-        // 封装返回结果
         RMResponse res = new RMResponse();
         res.setEpley(BigDecimal.valueOf(epley).setScale(2, RoundingMode.HALF_UP));
         res.setBrzycki(BigDecimal.valueOf(brzycki).setScale(2, RoundingMode.HALF_UP));
@@ -36,4 +30,3 @@ public class ToolController {
         return Result.success(res);
     }
 }
-

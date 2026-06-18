@@ -6,7 +6,7 @@
         SELECT * FROM workout_plan_set WHERE plan_activity_id = #{activityId} ORDER BY set_index
     </select>
 
-    <insert id="insert">
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO workout_plan_set (plan_activity_id, set_index, weight, reps) VALUES (#{planActivityId}, #{setIndex}, #{weight}, #{reps})
     </insert>
 

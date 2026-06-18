@@ -78,3 +78,23 @@ CREATE TABLE workout_plan (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES user(id)
 );
+
+-- Workout Plan Activity Table
+CREATE TABLE workout_plan_activity (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    plan_id BIGINT NOT NULL,
+    exercise_id BIGINT NOT NULL,
+    order_num INT,
+    FOREIGN KEY (plan_id) REFERENCES workout_plan(id),
+    FOREIGN KEY (exercise_id) REFERENCES exercise(id)
+);
+
+-- Workout Plan Set Table
+CREATE TABLE workout_plan_set (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    plan_activity_id BIGINT NOT NULL,
+    set_index INT,
+    weight DECIMAL(10, 2),
+    reps INT,
+    FOREIGN KEY (plan_activity_id) REFERENCES workout_plan_activity(id)
+);

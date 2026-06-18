@@ -11,6 +11,9 @@
         >
         <button v-if="searchQuery" class="btn-clear" @click="searchQuery = ''">×</button>
       </div>
+      <button class="btn-add-exercise" @click="showAddModal = true" title="添加动作">
+        <span>+</span>
+      </button>
     </div>
 
     <div class="exercise-container">
@@ -43,6 +46,14 @@
               class="exercise-card"
               @click="selectExercise(exercise)"
             >
+              <button 
+                type="button" 
+                class="btn-delete-exercise" 
+                @click.stop="deleteExercise(exercise)"
+                title="删除动作"
+              >
+                <span>−</span>
+              </button>
               <div class="exercise-info">
                 <h4 class="exercise-name">{{ exercise.name }}</h4>
                 <div class="exercise-tags">
@@ -407,37 +418,34 @@ onMounted(() => {
   color: #ff6b7a;
 }
 
+/* 添加动作按钮 */
 .btn-add-exercise {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
   background: linear-gradient(135deg, #ff4757, #ff6b7a);
   border: none;
-  border-radius: 8px;
-  padding: 10px 20px;
+  color: white;
+  font-size: 28px;
+  line-height: 1;
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  color: white;
-  font-weight: 600;
-  font-size: 14px;
-  white-space: nowrap;
-  box-shadow: 0 2px 4px rgba(255, 71, 87, 0.3);
+  box-shadow: 0 4px 12px rgba(255, 71, 87, 0.3);
 }
 
 .btn-add-exercise:hover {
   background: linear-gradient(135deg, #ff6b7a, #ff8fa3);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(255, 71, 87, 0.4);
-}
-
-.add-icon {
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 1;
+  box-shadow: 0 6px 20px rgba(255, 71, 87, 0.4);
+  transform: translateY(-2px) scale(1.05);
 }
 
 .btn-add-exercise:active {
-  transform: translateY(0);
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 8px rgba(255, 71, 87, 0.3);
 }
 
 .exercise-container {
@@ -538,12 +546,46 @@ onMounted(() => {
   padding: 15px;
   cursor: pointer;
   transition: all 0.2s ease;
+  position: relative;
 }
 
 .exercise-card:hover {
   background: rgba(255, 255, 255, 0.05);
   border-color: rgba(255, 71, 87, 0.3);
   transform: translateY(-2px);
+}
+
+/* 删除动作按钮 */
+.btn-delete-exercise {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255, 71, 87, 0.15);
+  border: 1px solid rgba(255, 71, 87, 0.3);
+  color: #ff6b7a;
+  font-size: 24px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+  padding: 0;
+}
+
+.btn-delete-exercise:hover {
+  background: rgba(255, 71, 87, 0.25);
+  border-color: rgba(255, 71, 87, 0.5);
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(255, 71, 87, 0.3);
+}
+
+.btn-delete-exercise:active {
+  transform: scale(0.95);
 }
 
 .exercise-info {

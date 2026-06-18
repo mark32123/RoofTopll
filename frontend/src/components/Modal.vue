@@ -1,6 +1,6 @@
 <template>
-  <div class="modal-overlay" v-if="show">
-    <div class="modal-content">
+  <div class="modal-overlay" v-if="show" @wheel.stop @touchmove.stop>
+    <div class="modal-content" @wheel.stop @touchmove.stop>
       <slot></slot>
       <button class="btn-close" @click="$emit('close')">X</button>
     </div>
@@ -8,8 +8,23 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{ show: boolean }>();
-defineEmits(['close']);
+import { watch, ref } from 'vue'
+
+const props = defineProps<{ show: boolean }>();
+const emit = defineEmits(['close']);
+
+// 当 Modal 打开时，禁止 body 滚动
+watch(
+  () => props.show,
+  (newVal) => {
+    if (newVal) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  },
+  { immediate: true }
+);
 </script>
 
 <style scoped>

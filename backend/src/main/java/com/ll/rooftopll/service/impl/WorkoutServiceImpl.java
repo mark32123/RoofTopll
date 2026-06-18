@@ -38,34 +38,29 @@ public class WorkoutServiceImpl implements WorkoutService {
     private WorkoutPlanSetMapper planSetMapper;
 
     @Override
-    @Transactional // 👈 必须开启事务，防止数据入库一半报错
+    @Transactional
     public void saveWorkoutSet(Long userId, Long exerciseId, WorkoutSet workoutSet) {
-        // 1. 获取或创建 Session
         WorkoutSession currentSession = sessionMapper.findActiveSession(userId);
 
-        //若没有选择已有计划，则创建一个新计划
         if (currentSession == null) {
             currentSession = new WorkoutSession();
             currentSession.setUserId(userId);
             currentSession.setStartTime(LocalDateTime.now());
             currentSession.setTitle("新训练计划");
-            sessionMapper.insert(currentSession); // 插入后，id 会自动回填
+            sessionMapper.insert(currentSession);
         }
 
-        //2. 获取或创建 Activity (动作)
         WorkoutActivity currentActivity = activityMapper.findActivity(currentSession.getId(), exerciseId);
 
         if (currentActivity == null) {
             currentActivity = new WorkoutActivity();
             currentActivity.setSessionId(currentSession.getId());
             currentActivity.setExerciseId(exerciseId);
-            // 自动计算这是今天第几个动作
             int actCount = activityMapper.countBySessionId(currentSession.getId());
             currentActivity.setOrderNum(actCount + 1);
             activityMapper.insert(currentActivity);
         }
 
-        // 3. 保存 Set (组数)
         workoutSet.setActivityId(currentActivity.getId());
         int setCount = setMapper.countByActivityId(currentActivity.getId());
         workoutSet.setSetIndex(setCount + 1);

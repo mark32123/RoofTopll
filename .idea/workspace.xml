@@ -4,10 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f37a9375-c42f-4d70-a0ec-eaab40565644" name="更改" comment="底部灵动岛样式导航（霓光红特效">
+    <list default="true" id="f37a9375-c42f-4d70-a0ec-eaab40565644" name="更改" comment="修改 Modal 组件来禁止底层页面的滚动">
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/SupplementTracker.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/UserAuth.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/WeightTracker.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ll/rooftopll/controller/ToolController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ll/rooftopll/controller/ToolController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ll/rooftopll/service/impl/WorkoutServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ll/rooftopll/service/impl/WorkoutServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/mapper/WorkoutPlanSetMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/mapper/WorkoutPlanSetMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ExerciseLibrary.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ExerciseLibrary.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Modal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Modal.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ProgressChart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ProgressChart.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/RMCalculator.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/RMCalculator.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/WorkoutPlan.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/WorkoutPlan.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +158,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775227265145</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="修改 Modal 组件来禁止底层页面的滚动">
+      <option name="closed" value="true" />
+      <created>1775228260205</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1775228260205</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -167,7 +188,8 @@
     <MESSAGE value="重命名" />
     <MESSAGE value="新建动作卡片添加了滚动容器，优化布局" />
     <MESSAGE value="底部灵动岛样式导航（霓光红特效" />
-    <option name="LAST_COMMIT_MESSAGE" value="底部灵动岛样式导航（霓光红特效" />
+    <MESSAGE value="修改 Modal 组件来禁止底层页面的滚动" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改 Modal 组件来禁止底层页面的滚动" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

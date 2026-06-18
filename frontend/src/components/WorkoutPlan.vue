@@ -251,14 +251,27 @@ x<template>
           <div class="activities-scroll-container" @wheel.stop @touchmove.stop>
             <div v-for="(activity, actIndex) in editablePlan.activities" :key="actIndex" class="activity-item">
               <div class="activity-header">
-                <select v-model="activity.exerciseId" required class="exercise-select">
-                  <option value="" disabled>选择动作</option>
-                  <option v-for="exercise in exercises" :key="exercise.id" :value="exercise.id">
-                    {{ exercise.name }} ({{ exercise.category }})
-                  </option>
-                </select>
-                <button type="button" class="btn-icon-remove" @click="removeActivity(actIndex)">×</button>
+                <div class="custom-select">
+                  <div class="select-display" @click="toggleSelect(actIndex)">
+                    {{ activity.exerciseId ? getExerciseName(activity.exerciseId) : '选择动作' }}
+                    <span class="select-arrow">▼</span>
+                  </div>
+                  <div v-if="openSelectIndex === actIndex" class="select-dropdown">
+                    <div 
+                      v-for="exercise in exercises" 
+                      :key="exercise.id"
+                      class="select-option"
+                      @click="selectExercise(actIndex, exercise.id)"
+                    >
+                      {{ exercise.name }} ({{ exercise.category }})
+                    </div>
+                  </div>
+                </div>
               </div>
+              
+              <button type="button" class="btn-delete-activity" @click="removeActivity(actIndex)" title="删除动作">
+                <span>−</span>
+              </button>
               
               <!-- 组数设置 -->
               <div class="sets-section">
@@ -322,6 +335,7 @@ const isEditing = ref(false)
 const editablePlan = ref<any>({ activities: [] })
 const selectedPlan = ref<any>(null)
 const exercises = ref<any[]>([])
+const openSelectIndex = ref<number | null>(null)
 
 // 预设的训练模板
 const templates = ref([
@@ -416,6 +430,15 @@ async function fetchExercises() {
 function getExerciseName(exerciseId: number): string {
   const exercise = exercises.value.find(e => e.id === exerciseId);
   return exercise ? exercise.name : '未知动作';
+}
+
+function toggleSelect(index: number) {
+  openSelectIndex.value = openSelectIndex.value === index ? null : index;
+}
+
+function selectExercise(index: number, exerciseId: number) {
+  editablePlan.value.activities[index].exerciseId = exerciseId;
+  openSelectIndex.value = null;
 }
 
 function getTotalSets(plan: any): number {
@@ -1110,6 +1133,7 @@ onMounted(() => {
   overflow-y: auto;
   padding-right: 8px;
   margin-top: 15px;
+  position: relative;
 }
 
 .activities-scroll-container::-webkit-scrollbar {
@@ -1134,8 +1158,10 @@ onMounted(() => {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
-  padding: 15px;
+  padding: 15px 50px 15px 15px;
   margin-bottom: 15px;
+  position: relative;
+  overflow-x: hidden;
 }
 
 .activity-header {
@@ -1143,6 +1169,111 @@ onMounted(() => {
   gap: 10px;
   align-items: center;
   margin-bottom: 12px;
+  padding-right: 40px;
+  position: relative;
+}
+
+/* 自定义下拉框 */
+.custom-select {
+  flex: 1;
+  position: relative;
+}
+
+/* 删除动作按钮 */
+.btn-delete-activity {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(255, 71, 87, 0.2);
+  border: 1px solid rgba(255, 71, 87, 0.4);
+  color: #ff6b7a;
+  font-size: 28px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+  padding: 0;
+}
+
+.btn-delete-activity:hover {
+  background: rgba(255, 71, 87, 0.3);
+  border-color: rgba(255, 71, 87, 0.6);
+  transform: scale(1.05);
+  box-shadow: 0 2px 12px rgba(255, 71, 87, 0.4);
+}
+
+.btn-delete-activity:active {
+  transform: scale(0.95);
+}
+
+.select-display {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-color);
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.select-display:hover {
+  border-color: rgba(255, 71, 87, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.select-arrow {
+  font-size: 12px;
+  transition: transform 0.2s ease;
+}
+
+.select-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  background: rgba(30, 30, 30, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.select-dropdown::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+  width: 0;
+  background: transparent;
+}
+
+.select-option {
+  padding: 10px 12px;
+  color: var(--text-color);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.select-option:last-child {
+  border-bottom: none;
+}
+
+.select-option:hover {
+  background: rgba(255, 71, 87, 0.15);
+  color: #ff6b7a;
 }
 
 .exercise-select {
@@ -1153,17 +1284,22 @@ onMounted(() => {
   background: rgba(255, 255, 255, 0.05);
   color: var(--text-color);
   font-size: 14px;
+  max-height: 200px;
+  overflow-y: auto;
 }
 
 .exercise-select option {
   background: #2a2a2a;
   color: var(--text-color);
+  padding: 8px;
+  height: 40px;
 }
 
 .sets-section {
   margin-top: 10px;
   padding-left: 10px;
   border-left: 2px solid rgba(255, 255, 255, 0.1);
+  padding-right: 40px;
 }
 
 .set-item {
